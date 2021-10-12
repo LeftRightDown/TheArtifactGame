@@ -1,0 +1,14 @@
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\bin\Debug\netcoreapp3.1\TheArtifactGame.exe
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\bin\Debug\netcoreapp3.1\TheArtifactGame.deps.json
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\bin\Debug\netcoreapp3.1\TheArtifactGame.runtimeconfig.json
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\bin\Debug\netcoreapp3.1\TheArtifactGame.runtimeconfig.dev.json
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\bin\Debug\netcoreapp3.1\TheArtifactGame.dll
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\bin\Debug\netcoreapp3.1\TheArtifactGame.pdb
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\obj\Debug\netcoreapp3.1\TheArtifactGame.csproj.AssemblyReference.cache
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\obj\Debug\netcoreapp3.1\TheArtifactGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\obj\Debug\netcoreapp3.1\TheArtifactGame.AssemblyInfoInputs.cache
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\obj\Debug\netcoreapp3.1\TheArtifactGame.AssemblyInfo.cs
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\obj\Debug\netcoreapp3.1\TheArtifactGame.csproj.CoreCompileInputs.cache
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\obj\Debug\netcoreapp3.1\TheArtifactGame.dll
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\obj\Debug\netcoreapp3.1\TheArtifactGame.pdb
+C:\Users\trick\Documents\School\PROG101\TheArtifactGame\TheArtifactGame\obj\Debug\netcoreapp3.1\TheArtifactGame.genruntimeconfig.cache
