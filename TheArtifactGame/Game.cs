@@ -30,8 +30,7 @@ namespace TheArtifactGame
                            ██║   ██║  ██║███████╗    ██║  ██║██║  ██║   ██║   ██║██║     ██║  ██║╚██████╗   ██║   
                            ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝   ╚═╝  
 
-                                               (Press Enter to Contuine)
-                                                    By:Zachary Tan
+                                               (Press Enter to Contuine)                                         
                 ";
 
             WriteLine(TitleText);
@@ -85,6 +84,22 @@ namespace TheArtifactGame
             Story Plots = new Story();
 
             Clear();
+           string InstructionsText = @"
+
+                ██╗  ██╗ ██████╗ ██╗    ██╗    ████████╗ ██████╗     ██████╗ ██╗      █████╗ ██╗   ██╗    
+                ██║  ██║██╔═══██╗██║    ██║    ╚══██╔══╝██╔═══██╗    ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝    
+                ███████║██║   ██║██║ █╗ ██║       ██║   ██║   ██║    ██████╔╝██║     ███████║ ╚████╔╝     
+                ██╔══██║██║   ██║██║███╗██║       ██║   ██║   ██║    ██╔═══╝ ██║     ██╔══██║  ╚██╔╝      
+                ██║  ██║╚██████╔╝╚███╔███╔╝       ██║   ╚██████╔╝    ██║     ███████╗██║  ██║   ██║       
+                ╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝        ╚═╝    ╚═════╝     ╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝       
+                                                                                          
+             ";
+            WriteLine(InstructionsText);
+            ForegroundColor = ConsoleColor.Cyan;
+            WriteLine("Use ARROW KEYS to navigate the menu and use ENTER to continue story.");
+            ResetColor();
+            ReadKey();
+            Clear();
 
             WriteLine(Plots.PlotIntro[0]);
 
@@ -97,7 +112,7 @@ namespace TheArtifactGame
 
             void Dialog(string message)
             {
-                ForegroundColor = ConsoleColor.Cyan;
+                ForegroundColor = ConsoleColor.DarkCyan;
                 Robot.ForegroundColor = ConsoleColor.Yellow;
                 Write(message);
                 ResetColor();
@@ -150,25 +165,31 @@ namespace TheArtifactGame
             string[] options = { "A) Check Navigation System", "B) Check Coolant System" };
             Menu HallwayMenu = new Menu(prompt, options);
             int selectedIndex = HallwayMenu.Run();
-
+            
+            
 
             switch (selectedIndex)
             {
                 case 0:
                     WriteLine("You Choose to Check Navigation System\n");
                     WriteLine(Plot.PlotOne[0]);
+                    WriteLine("Press ENTER to Continue");
+                    
+                    
                     break;
                 case 1:
                     WriteLine("You Choose to Check Coolant System\n");
                     WriteLine(Plot.PlotOne[1]);
+                    WriteLine("Press ENTER to Continue");
+                    
                     break;
             }
 
 
-            //Provide Game Options for PlotOne
+            
             void Option()
             {
-                Clear();
+                
 
 
 
@@ -185,7 +206,9 @@ namespace TheArtifactGame
         {
             Clear();
             WriteLine("Created by Zachary Tan");
-            WriteLine("Assets Used from https://patorjk.com/software/taag");
+            WriteLine("Title Assets Used from https://patorjk.com/software/taag");
+            WriteLine("Menu Code used from https://www.youtube.com/watch?v=qAWhGEPMlS8");
+            WriteLine("");
             WriteLine("Press any key to return to main menu.");
             ReadKey(true);
             RunMainMenu();
