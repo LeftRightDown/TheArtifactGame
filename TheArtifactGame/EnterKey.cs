@@ -8,32 +8,48 @@ namespace TheArtifactGame
 {
     public class EnterKey
     {
+        private string[] Options;
+        private string Continue;
 
-        public string Enterkey()
+        public EnterKey(string prompt, string[] options)
         {
+            Continue = prompt;
+            Options = options;
+
+        }
+
+        public void DisplayContinueOption()
+        {
+            string continueOption = Options[0];
+            string prefix = "*";
+            ForegroundColor = ConsoleColor.Black;
+            BackgroundColor = ConsoleColor.White;
+            Thread.Sleep(3000);
+            WriteLine($"{prefix} << {continueOption} >>");
+            ResetColor();
+        }
+        public void Enterkey()
+        {
+            
+            DisplayContinueOption();
             ConsoleKey enterKeyPressed;
             do
             {
-                ReadLine();
-                Clear();
-                WriteLine("Press ENTER to CONTINUE");
-
+            
                 ConsoleKeyInfo enterKeyInfo = ReadKey(true);
                 enterKeyPressed = enterKeyInfo.Key;
                 if (enterKeyPressed == ConsoleKey.Enter)
                 {
 
-                    ReadKey();
 
                 }
                 else
                 {
-                    WriteLine("You did not press correcet Input");
-                    Thread.Sleep(1000);
+                    WriteLine("Please Press Enter to Continue");
                     
                 }
             } while (enterKeyPressed!=ConsoleKey.Enter);
-              return Enterkey();
+              
         
         
         }

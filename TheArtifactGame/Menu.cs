@@ -22,8 +22,6 @@ namespace TheArtifactGame
         }
 
 
-
-
         private void DisplayOptions()
         {
 

@@ -10,14 +10,14 @@ namespace TheArtifactGame
         //Property of Players
         public string PlayerName { get; set; }
         public List<string> PlayerInventory { get; private set; }
-        public ConsoleColor ForegroundColor { get; set; }
+        
 
 
         //Player Instance 
-        public Player(string name, ConsoleColor color)
+        public Player(string name)
         {
             PlayerName = name;
-            ForegroundColor = color;
+            
             
         }
 
