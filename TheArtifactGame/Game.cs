@@ -165,6 +165,7 @@ namespace TheArtifactGame
             string[] options = { "A) Check Navigation System", "B) Check Coolant System" };
             Menu HallwayMenu = new Menu(prompt, options);
             int selectedIndex = HallwayMenu.Run();
+            EnterKey pressEnter = new EnterKey();
             
             
 
@@ -173,25 +174,52 @@ namespace TheArtifactGame
                 case 0:
                     WriteLine("You Choose to Check Navigation System\n");
                     WriteLine(Plot.PlotOne[0]);
-                    WriteLine("Press ENTER to Continue");
                     
                     
+                    ShowUserPartTwo();
                     break;
                 case 1:
                     WriteLine("You Choose to Check Coolant System\n");
                     WriteLine(Plot.PlotOne[1]);
                     WriteLine("Press ENTER to Continue");
                     
+                    ReadKey();
+                    ShowUserPartTwo();
                     break;
             }
 
 
             
-            void Option()
+            void ShowUserPartTwo()
             {
-                
+                Clear();
+                string prompt = @"
+              
+                        ";
 
+                string[] options = { "A) Message distress ship", "B)Scan distress ship" };
+                Menu ControlRoom = new Menu(prompt, options);
+                int selectedIndex = ControlRoom.Run();
 
+                switch (selectedIndex)
+                {
+                    case 0:
+                        WriteLine("You Choose to Message distress ship\n");
+                        WriteLine();
+                        WriteLine("Press ENTER to Continue");
+                        
+
+                        ShowUserPartTwo();
+                        break;
+                    case 1:
+                        WriteLine("You Choose to Check Coolant System\n");
+                        WriteLine();
+                        WriteLine("Press ENTER to Continue");
+
+                        ReadKey();
+                        ShowUserPartTwo();
+                        break;
+                }
 
 
             }

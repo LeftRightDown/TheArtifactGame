@@ -14,6 +14,7 @@ namespace TheArtifactGame
             ConsoleKey enterKeyPressed;
             do
             {
+                ReadLine();
                 Clear();
                 WriteLine("Press ENTER to CONTINUE");
 
@@ -22,16 +23,17 @@ namespace TheArtifactGame
                 if (enterKeyPressed == ConsoleKey.Enter)
                 {
 
-                   
+                    ReadKey();
 
                 }
                 else
                 {
                     WriteLine("You did not press correcet Input");
-                    Thread.Sleep(3000);
-                    return Enterkey();
+                    Thread.Sleep(1000);
+                    
                 }
-            } while (true);
+            } while (enterKeyPressed!=ConsoleKey.Enter);
+              return Enterkey();
         
         
         }
