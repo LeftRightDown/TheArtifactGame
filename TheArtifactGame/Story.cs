@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using static System.Console;
+using System.Threading;
 
 namespace TheArtifactGame
 {
     public class Story
     {
-
+        //Instance of Player
         Player Voyager = new Player("Voyager");
-        Player Robot = new Player("Aurora");
+        static Player Robot = new Player("Aurora");
+       //Dialog method
         void Dialog(string message, ConsoleColor Color)
         {
             ForegroundColor = Color;
@@ -18,53 +20,61 @@ namespace TheArtifactGame
             ResetColor();
         }
 
+
+        //Story Telling String Arrays
         public string[] PlotIntro =
         {
-         "It is the Clestial Year 2085 and Humanity has reached for the stars once more. Sparking a the new age of Exploration!\n"+
-         "This is the Beginning of your Story...\n"+
+         "It is the Clestial Year 2085 and Humanity has reached for the stars once more. " +
+         "Sparking a the new age of Exploration!\n"+
+         "This is the Beginning of your Story...\n",
+         
          "You Wake up from Cryostatis almost finished on your 2 month journey to Jupiter.\n"+
          "Upon Awaking your greeted by your Robot companion Aurora who seems to be pointing something at you.\n"+
-         "You take a closer look to double check and notice she is pointing her blaster at you."
+         "Still a little sleepy you take a closer look only to realize she is pointing her blaster at you."
         };
 
 
 
         public string[] PlotOne =
          {
-         $"You decide to check out the navigation systems\nYou exit out of your room making your way down the corridor with its light flickering back and forth.\n"+
+         $"You decide to check out the navigation systems\n" +
+         $"You exit out of your room making your way down the corridor with its light flickering back and forth.\n"+
          $"As you walk past the light you bang your fist against the wall causing the light to fix itself.\n"+
-         $"Entering the bridge you're greeted with specks of light out the window filling up the darkness of space.\nYou open up your control panel, acessing the navagational systems.\n"+
-         $"The ship is still on its correct course and will reach its destination in two weeks\n",
+         $"Entering the bridge you're greeted with specks of light out the window filling up the darkness of space.\n" +
+         $"You open up your control panel, acessing the navigational systems.\n"+
+         $"The ship is still on its correct course and will reach its destination in two weeks.\n",
 
-         $"You decide to check on the engine coolant systems\nYou exit out of your room taking a left down the corridor"+
-         $"You walk into the engine control room and grab the tablet hanging on the wall\n"+
-         $"With the tablet you note the current temperatures and adjust the fuse valves for optimal performance",
+         $"You decide to check on the engine coolant systems.\n" +
+         $"You exit out of your room taking a left down the corridor.\n"+
+         $"You walk into the engine control room and grab the tablet hanging on the wall.\n"+
+         $"With the tablet you note the current temperatures and adjust the fuse valves for optimal performance.",
 
-         $"Suddenly an alarm siren goes off.\nYou quickly make your way to the control panel to see it is a distress singal coming from a ship at heading 294, mark 35\n"+
+         $"Suddenly an alarm siren goes off and the lights switch to emrgency mode.\n" +
+         $"You quickly make your way to the control panel to see it is a distress singal coming from a ship at heading 294, mark 35.\n"+
          $"You make your way to the pilot seat and replot your destination towards the the distress signal.",
-    
-         $"As you exit the engine room the alarm system goes off and the lights switch to emergency mode\n"+
+
+         $"As you exit the engine room the alarm system goes off and the lights switch to emergency mode.\n"+
          $"You quickly make your way to the bridge to check out the whats causing the alarm.\n"+
-         $"Aroura looks at you as reveals that the cause of the alarm is a distress singal from another ship at heading 294, mark 35\n"+
+         $"Aroura looks at you and reveals that there is a distress singal from another ship at heading 294, mark 35.\n"+
          $"You make your way to the pilot seat and replot your destination towards the the distress signal.",
         };
 
-        
+
 
 
         public string[] PlotTwo =
         {
-         $"You decide to board the burning ship and put on your space suit to jump onto the ship"+
-         $""+
-         $""+
-         $""+
-         $"",
+         $"You decide to board the smoking ship and put on your space suit with the help of Aurora",
+         
+
+         $"You decide to user the ships high tech scanners to look for any life forms on the ship",
+         
 
 
 
          $""+
          $""+
-         $""+ 
+         $""+
          $""+
          $"",
 
@@ -75,6 +85,11 @@ namespace TheArtifactGame
         public string[] PlotThree =
         {
 
+         $"You Hop into the Airlock preparing to board the ship.\n"+
+         $"{Robot.PlayerName} closes airlock and relases the door causing you to get pulled into open space.\n"+
+         $"You use your jet propulsion to maneuver your way to the smoking ship.\n"+
+         $"Grabbing onto the ships exterior handlebars you pull the emergency lever on the exterior door and make your way into the ship.\n",
+        
 
 
 
@@ -84,30 +99,102 @@ namespace TheArtifactGame
 
         public string[] PlotFour =
         {
-
+          $"",
 
 
         };
-    
-       
+
+        public string[] Death =
+        {
+            @"                
+
+                               .... NO! ...                  ... MNO! ...
+                           ..... MNO!! ...................... MNNOO! ...
+                         ..... MMNO! ......................... MNNOO!! .
+                        .... MNOONNOO!   MMMMMMMMMMPPPOII!   MNNO!!!! .
+                         ... !O! NNO! MMMMMMMMMMMMMPPPOOOII!! NO! ....
+                            ...... ! MMMMMMMMMMMMMPPPPOOOOIII! ! ...
+                           ........ MMMMMMMMMMMMPPPPPOOOOOOII!! .....
+                           ........ MMMMMOOOOOOPPPPPPPPOOOOMII! ...  
+                            ....... MMMMM..    OPPMMP    .,OMI! ....
+                             ...... MMMM::   o.,OPMP,.o   ::I!! ...
+                                 .... NNM:::.,,OOPM!P,.::::!! ....
+                                  .. MMNNNNNOOOOPMO!!IIPPO!!O! .....
+                                 ... MMMMMNNNNOO:!!:!!IPPPPOO! ....
+                                   .. MMMMMNNOOMMNNIIIPPPOO!! ......
+                                  ...... MMMONNMMNNNIIIOO!..........
+                               ....... MN MOMMMNNNIIIIIO! OO ..........
+                            ......... MNO! IiiiiiiiiiiiI OOOO ...........
+                          ...... NNN.MNO! . O!!!!!!!!!O . OONO NO! ........
+                           .... MNNNNNO! ...OOOOOOOOOOO .  MMNNON!........
+                           ...... MNNNNO! .. PPPPPPPPP .. MMNON!........
+                              ...... OO! ................. ON! .......
+                                 ................................
+            "
+        };
 
 
- 
+        // Plot Dialog Method Call
         public void PlotDialogPartOne()
         {
             
             //Character Setup
             WriteLine("(Enter your name)");
-            Dialog("YOU: WOAH WOAH WOAH ITS ME ITS ME: ", ConsoleColor.DarkCyan);
+            Dialog(
+                    "YOU: WOAH WOAH WOAH ITS ME ITS ME: "
+                    , ConsoleColor.Blue);
             Voyager.PlayerName = ReadLine();
 
-            Dialog($"{Robot.PlayerName}: {Voyager.PlayerName}?\n{Robot.PlayerName}: oh oh I remember you!\n{Robot.PlayerName}: {Voyager.PlayerName} My HUMAN!\n", ConsoleColor.DarkYellow);
-            Dialog($"{Robot.PlayerName}: Welcome back {Voyager.PlayerName}!\n{Robot.PlayerName}: Here is this weeks to-do list\n", ConsoleColor.DarkYellow);
+            Dialog(
+                   $"{Robot.PlayerName}: {Voyager.PlayerName}?\n" +
+                   $"{Robot.PlayerName}: oh oh I remember you!\n" +
+                   $"{Robot.PlayerName}: {Voyager.PlayerName} My HUMAN! I totally didn't forget about you....\n", 
+                   ConsoleColor.Yellow);
+            Thread.Sleep(4500);
+            Dialog(
+                   $"{Voyager.PlayerName}: Who do you think it was in the sleep pod?\n",
+                   ConsoleColor.Blue
+                  );
+            Thread.Sleep(3000);
+            Dialog(
+                   $"{Robot.PlayerName}: Anyways! Welcome back {Voyager.PlayerName}!\n" +
+                   $"{Robot.PlayerName}: I've been keeping this ship together while you took your monthly nap\n"+
+                   $"{Robot.PlayerName}: But I made sure to leave something for you to do!\n"+
+                   $"{Robot.PlayerName}: Here is this weeks to-do list\n",
+                   ConsoleColor.Yellow
+                   );
            
-
 
         }
 
+        public void PlotDialogPartTwoA()
+        {
+         Dialog(
+             $"{Robot.PlayerName}: Your all set!\n"+
+             $"{Robot.PlayerName}: Make sure you don't die! I don't want to fix your mess.\n"
+             ,ConsoleColor.Yellow
+             );
+            Dialog(
+             $"{Voyager.PlayerName}: Alright Thanks for the advice!\n" +
+             $"{Voyager.PlayerName}: I know you just don't want to be lonely.\n"
+             , ConsoleColor.Blue
+             );
 
+        }
+        public void PlotDialogPartTwoB()
+        {
+            Dialog(
+                $"{Voyager.PlayerName}: {Robot.PlayerName} Scan the ship!\n",
+                ConsoleColor.Blue
+                ) ;
+            Dialog(
+                $"{Robot.PlayerName}: Preping Scanners\n" +
+                $"{Robot.PlayerName}: Scanning ship NOW!\n",
+                ConsoleColor.Yellow
+                );
+
+
+
+        }
     }
 }

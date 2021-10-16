@@ -24,20 +24,18 @@ namespace TheArtifactGame
             string TitleText = @"
 
 
-                        ████████╗██╗  ██╗███████╗     █████╗ ██████╗ ████████╗██╗███████╗ █████╗  ██████╗████████╗
-                        ╚══██╔══╝██║  ██║██╔════╝    ██╔══██╗██╔══██╗╚══██╔══╝██║██╔════╝██╔══██╗██╔════╝╚══██╔══╝
-                           ██║   ███████║█████╗      ███████║██████╔╝   ██║   ██║█████╗  ███████║██║        ██║   
-                           ██║   ██╔══██║██╔══╝      ██╔══██║██╔══██╗   ██║   ██║██╔══╝  ██╔══██║██║        ██║   
-                           ██║   ██║  ██║███████╗    ██║  ██║██║  ██║   ██║   ██║██║     ██║  ██║╚██████╗   ██║   
-                           ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝   ╚═╝  
-                                                      (Press Enter to Continue)
-                                                                                      
+                       ████████╗██╗  ██╗███████╗     █████╗ ██████╗ ████████╗██╗███████╗ █████╗  ██████╗████████╗
+                       ╚══██╔══╝██║  ██║██╔════╝    ██╔══██╗██╔══██╗╚══██╔══╝██║██╔════╝██╔══██╗██╔════╝╚══██╔══╝
+                          ██║   ███████║█████╗      ███████║██████╔╝   ██║   ██║█████╗  ███████║██║        ██║   
+                          ██║   ██╔══██║██╔══╝      ██╔══██║██╔══██╗   ██║   ██║██╔══╝  ██╔══██║██║        ██║   
+                          ██║   ██║  ██║███████╗    ██║  ██║██║  ██║   ██║   ██║██║     ██║  ██║╚██████╗   ██║   
+                          ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝   ╚═╝  
+                                                     (Press Enter to Continue)                                                                     
                 ";
 
             WriteLine(TitleText);
             Enterkey("", ConsoleColor.Cyan);
             Clear();
-            Title = "The Artifact by: Zachary Tan";
             RunMainMenu();
 
         }
@@ -49,17 +47,15 @@ namespace TheArtifactGame
             string prompt = @"
 
 
-
-
                        ████████╗██╗  ██╗███████╗     █████╗ ██████╗ ████████╗██╗███████╗ █████╗  ██████╗████████╗
                        ╚══██╔══╝██║  ██║██╔════╝    ██╔══██╗██╔══██╗╚══██╔══╝██║██╔════╝██╔══██╗██╔════╝╚══██╔══╝
                           ██║   ███████║█████╗      ███████║██████╔╝   ██║   ██║█████╗  ███████║██║        ██║   
                           ██║   ██╔══██║██╔══╝      ██╔══██║██╔══██╗   ██║   ██║██╔══╝  ██╔══██║██║        ██║   
                           ██║   ██║  ██║███████╗    ██║  ██║██║  ██║   ██║   ██║██║     ██║  ██║╚██████╗   ██║   
-                          ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝   ╚═╝   
-                                                        Welcome to the Game!
+                          ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝╚═╝     ╚═╝  ╚═╝ ╚═════╝   ╚═╝  
+                                                       Welcome to the Game!
                                                (Use Arrow Keys to navigate Menu Options)
-                                ";
+                          ";
             string[] Options = { "Play", "About", "Exit" };
             Menu mainMenu = new Menu(prompt, Options);
             int selectedIndex = mainMenu.Run();
@@ -82,7 +78,7 @@ namespace TheArtifactGame
         //Starts Actual Game
         private void PressPlay()
         {
-            Story Plots = new Story();
+            
 
             Clear();
            string InstructionsText = @"
@@ -103,35 +99,20 @@ namespace TheArtifactGame
             Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
             Clear();
 
-            WriteLine(Plots.PlotIntro[0]);
-
+            WriteLine(Plot.PlotIntro[0]);
+            Thread.Sleep(4000);
+            WriteLine(Plot.PlotIntro[1]);
+            Thread.Sleep(9000);
             Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
 
-            Plots.PlotDialogPartOne();
+            Plot.PlotDialogPartOne();
             Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
             ShowUserPartOne();
 
 
 
-            //void Dialog(string message,ConsoleColor Color)
-            //{
-            //    ForegroundColor = Color;
-                
-            //    Write(message);
-            //    ResetColor();
-            //}
-
-            ////Character Setup
-            //WriteLine("(Enter your name)");
-            //Dialog("YOU: WOAH WOAH WOAH ITS ME ITS ME: ", ConsoleColor.DarkCyan);
-            //Voyager.PlayerName = ReadLine();
-
-            //Dialog($"{Robot.PlayerName}: {Voyager.PlayerName}?\n{Robot.PlayerName}: oh oh I remember you!\n{Robot.PlayerName}: {Voyager.PlayerName} My HUMAN!\n", ConsoleColor.DarkYellow);
-            //Dialog($"{Robot.PlayerName}: Welcome back {Voyager.PlayerName}!\n{Robot.PlayerName}: Here is this weeks to-do list\n", ConsoleColor.DarkYellow);
-            //Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-            //Clear();
-            //ShowUserPartOne();
+            
 
         }
 
@@ -164,6 +145,9 @@ namespace TheArtifactGame
             ||                                                   ||
             |`-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-='| 
              `-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-'          
+            Aurora hands you a tablet from her personal compartment.
+            You verify your identiy with a face scan and navigate to the to-do list.
+            It seems Aurora has left you two jobs to do: Check Navigation System or Check Coolant System.
                         ";
 
             string[] options = { "A) Check Navigation System", "B) Check Coolant System" };
@@ -178,7 +162,7 @@ namespace TheArtifactGame
                 case 0:
                     WriteLine("You Choose to Check Navigation System\n");
                     WriteLine(Plot.PlotOne[0]);
-                    Thread.Sleep(5000);
+                    Thread.Sleep(20000);
                     WriteLine("");
                     WriteLine(Plot.PlotOne[2]);
                     Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
@@ -188,7 +172,7 @@ namespace TheArtifactGame
                 case 1:
                     WriteLine("You Choose to Check Coolant System\n");
                     WriteLine(Plot.PlotOne[1]);
-                    Thread.Sleep(5000);
+                    Thread.Sleep(10000);
                     WriteLine("");
                     WriteLine(Plot.PlotOne[3]);
                     Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
@@ -217,11 +201,11 @@ namespace TheArtifactGame
                                                `-:._____/______/___/____`.     \  `
                                                            |       `._    `.    \
                                                            `._________`-.   `.   `.___
-                                                                              `------'`
+                                                                         SSt  `------'`
 
-                            You arrive to the location of the distress signal and see a smoking ship outside the window.
-                            You message the distress ship but recive no response. 
-                            So you are left with two options: Boarding the ship or Scanning it for life forms.
+                      You arrive to the location of the distress signal and see a smoking ship outside the window.
+                      You message the distress ship but recive no response. 
+                      So you are left with two options: Boarding the ship or Scanning it for life forms.
 
                         ";
 
@@ -234,64 +218,132 @@ namespace TheArtifactGame
                     case 0:
                         WriteLine("You Choose to Board ship\n");
                         WriteLine(Plot.PlotTwo[0]);
+                        Thread.Sleep(1000);
+                        Plot.PlotDialogPartTwoA();
                         WriteLine("");
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
-                        ShowUserPartTwo();
+                        ShowUserPartThree();
                         break;
                     case 1:
                         WriteLine("You Choose to Scan System\n");
-                        WriteLine(Plot.PlotTwo[0]);
+                        WriteLine(Plot.PlotTwo[1]);
+                        Thread.Sleep(1000);
+                        Plot.PlotDialogPartTwoB();
                         WriteLine("");
+
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
-                        ShowUserPartTwo();
+                        ShowUserPartThree();
                         break;
                 }
 
-
             }
-
-
             void ShowUserPartThree()
             {
                 Clear();
                 string prompt = @"
-                                                     
-                                        ";
 
-                string[] options = { "A) ", "B) " };
-                Menu ControlRoom = new Menu(prompt, options);
-                int selectedIndex = ControlRoom.Run();
+                
+                                     _..._
+                                  .'     '.      _
+                                 /    .-""-\   _/ \
+                               .-|   /:.   |  |   |
+                               |  \  |:.   /.-'-./
+                               | .-'-;:__.'    =/
+                               .'=  *=|NASA _.='
+                              /   _.  |    ;
+                             ;-.-'|    \   |
+                            /   | \    _\  _\
+                            \__/'._;.  ==' ==\
+                                     \    \   |
+                                     /    /   /
+                                     /-._/-._/
+                              jgs    \   `\  \
+                                      `-._/._/
+                     ";
 
-                switch (selectedIndex)
-                {
-                    case 0:
-                        WriteLine("You Choose to Board ship\n");
-                        WriteLine(Plot.PlotThree);
-                        WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                WriteLine(prompt);
+                WriteLine(Plot.PlotThree[0]);
+                Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+                ShowUserPartFour();
 
 
-                        ShowUserPartFour();
-                        break;
-                    case 1:
-                        WriteLine("You Choose to Scan System\n");
-                        WriteLine(Plot.PlotThree);
-                        WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
-                        ShowUserPartFour();
-                        break;
-                }
-
-            }
-
+            };
 
             void ShowUserPartFour()
             {
                 Clear();
                 string prompt = @"
+                     _____________________________________________
+                    |.'',                                     ,''.|
+                    |.'.'',                                 ,''.'.|
+                    |.'.'.'',                             ,''.'.'.|
+                    |.'.'.'.'',                         ,''.'.'.'.|
+                    |.'.'.'.'.|                         |.'.'.'.'.|
+                    |.'.'.'.'.|===;                 ;===|.'.'.'.'.|
+                    |.'.'.'.'.|:::|',             ,'|:::|.'.'.'.'.|
+                    |.'.'.'.'.|---|'.|, _______ ,|.'|---|.'.'.'.'.|
+                    |.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|
+                    |,',',',',|---|',|'|???????|'|,'|---|,',',',',|
+                    |.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|
+                    |.'.'.'.'.|---|','   /%%%\   ','|---|.'.'.'.'.|
+                    |.'.'.'.'.|===:'    /%%%%%\    ':===|.'.'.'.'.|
+                    |.'.'.'.'.|%%%%%%%%%%%%%%%%%%%%%%%%%|.'.'.'.'.|
+                    |.'.'.'.','       /%%%%%%%%%\       ','.'.'.'.|
+                    |.'.'.','        /%%%%%%%%%%%\        ','.'.'.|
+                    |.'.','         /%%%%%%%%%%%%%\         ','.'.|
+                    |.','          /%%%%%%%%%%%%%%%\          ','.|
+                    |;____________/%%%%%Spicer%%%%%%\____________;|
+                After closing the door you notice the power still works
+                So you decompress in the airlock and take off your helmet.                    
+                Upon arrival you are greeted with a four way interesection
+                                        ";
+
+                string[] options = { "A)Left", "B)Right ","C)Forward ","D)Backwards" };
+                Menu ControlRoom = new Menu(prompt, options);
+                int selectedIndex = ControlRoom.Run();
+
+                switch (selectedIndex)
+                {
+                    case 0:
+                        WriteLine("You Choose to go Left\n");
+                        WriteLine(Plot.PlotThree[0]);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+                        ShowUserPartFour();
+                        break;
+                    case 1:
+                        WriteLine("You Choose to go Right");
+                        WriteLine(Plot.PlotThree[1]);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+                        ShowUserPartFour();
+                        break;
+                    case 2:
+                        WriteLine("You Choose to go Forward");
+                        WriteLine(Plot.PlotThree[2]);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                        break;
+                    case 3:
+                        WriteLine("You Choose to go Backward");
+                        WriteLine(Plot.PlotThree[3]);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                        break; 
+                }
+
+            }
+
+
+            void ShowUserPartFive()
+            {
+                Clear();
+                string prompt = @"
                                                      
                                         ";
 
@@ -302,7 +354,7 @@ namespace TheArtifactGame
                 switch (selectedIndex)
                 {
                     case 0:
-                        WriteLine("You Choose to Board ship\n");
+                        WriteLine("\n");
                         WriteLine(Plot.PlotThree);
                         WriteLine("");
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
@@ -310,7 +362,7 @@ namespace TheArtifactGame
 
                         break;
                     case 1:
-                        WriteLine("You Choose to Scan System\n");
+                        WriteLine("\n");
                         WriteLine(Plot.PlotThree);
                         WriteLine("");
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
@@ -326,8 +378,9 @@ namespace TheArtifactGame
         {
             Clear();
             WriteLine("Created by Zachary Tan");
-            WriteLine("Title Assets Used from https://patorjk.com/software/taag");
+            WriteLine("Title Assets used from https://patorjk.com/software/taag");
             WriteLine("Menu Code used from https://www.youtube.com/watch?v=qAWhGEPMlS8");
+            WriteLine("Art Assets used from https://www.asciiart.eu/");
             WriteLine("");
             WriteLine("Press any key to return to main menu.");
             ReadKey(true);
@@ -362,7 +415,7 @@ namespace TheArtifactGame
                 }
                 else
                 {
-                    WriteLine("You did not press correcet Input");
+                    WriteLine("You did not press correct Input");
                     
 
                 }

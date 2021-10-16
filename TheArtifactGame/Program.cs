@@ -15,9 +15,9 @@ namespace TheArtifactGame
     {
         static void Main()
         {
-            WindowHeight = 35;
+            WindowHeight = 40;
             WindowWidth = 130;
-
+            Title = "The Artifact";
             Game myGame = new Game();
             myGame.TitleScene();
           
