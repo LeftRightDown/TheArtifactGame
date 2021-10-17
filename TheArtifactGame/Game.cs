@@ -172,7 +172,7 @@ namespace TheArtifactGame
                 case 1:
                     WriteLine("You Choose to Check Coolant System\n");
                     WriteLine(Plot.PlotOne[1]);
-                    Thread.Sleep(10000);
+                    Thread.Sleep(15000);
                     WriteLine("");
                     WriteLine(Plot.PlotOne[3]);
                     Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
@@ -218,7 +218,7 @@ namespace TheArtifactGame
                     case 0:
                         WriteLine("You Choose to Board ship\n");
                         WriteLine(Plot.PlotTwo[0]);
-                        Thread.Sleep(1000);
+                        Thread.Sleep(1500);
                         Plot.PlotDialogPartTwoA();
                         WriteLine("");
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
@@ -228,7 +228,7 @@ namespace TheArtifactGame
                     case 1:
                         WriteLine("You Choose to Scan System\n");
                         WriteLine(Plot.PlotTwo[1]);
-                        Thread.Sleep(1000);
+                        Thread.Sleep(2500);
                         Plot.PlotDialogPartTwoB();
                         WriteLine("");
 
@@ -298,7 +298,8 @@ namespace TheArtifactGame
                     |;____________/%%%%%Spicer%%%%%%\____________;|
                 After closing the door you notice the power still works
                 So you decompress in the airlock and take off your helmet.                    
-                Upon arrival you are greeted with a four way interesection
+                Upon arrival you are greeted with a four way interesection.
+                Each pathway looking rather similar.
                                         ";
 
                 string[] options = { "A)Left", "B)Right ","C)Forward ","D)Backwards" };
@@ -309,38 +310,107 @@ namespace TheArtifactGame
                 {
                     case 0:
                         WriteLine("You Choose to go Left\n");
-                        WriteLine(Plot.PlotThree[0]);
+                        WriteLine(Plot.PlotFour[0]);
                         WriteLine("");
+                        Thread.Sleep(8500);
+                        Plot.PlotDialogPartFourA();
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
-                        ShowUserPartFour();
+                        ShowUserPartFive();
                         break;
                     case 1:
-                        WriteLine("You Choose to go Right");
-                        WriteLine(Plot.PlotThree[1]);
+                        WriteLine("You Choose to go Right\n");
+                        WriteLine(Plot.PlotFour[1]);
+                        Thread.Sleep(12000);
+                        Clear();
+                        WriteLine(Plot.Death[0]);
+                        WriteLine("You Have Died");
                         WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                        Enterkey("Press Enter to Continue to decision phase", ConsoleColor.Cyan);
 
-                        ShowUserPartFour();
+                        
                         break;
                     case 2:
-                        WriteLine("You Choose to go Forward");
-                        WriteLine(Plot.PlotThree[2]);
+                        WriteLine("You Choose to go Forward\n");
+                        WriteLine(Plot.PlotFour[2]);
                         WriteLine("");
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                        ShowUserPartFive();
                         break;
                     case 3:
-                        WriteLine("You Choose to go Backward");
-                        WriteLine(Plot.PlotThree[3]);
+                        WriteLine("You Choose to go Backward\n");
+                        WriteLine(Plot.PlotFour[3]);
                         WriteLine("");
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                        ShowUserPartFive();
                         break; 
                 }
-
             }
 
-
             void ShowUserPartFive()
+            {
+                Clear();
+                string prompt = @"
+                                                     
+                                        ";
+
+                string[] options = { "A) ", "B) " };
+                Menu ControlRoom = new Menu(prompt, options);
+                int selectedIndex = ControlRoom.Run();
+
+                switch (selectedIndex)
+                {
+                    case 0:
+                        WriteLine("\n");
+                        WriteLine(Plot.PlotFive[0]);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+
+                        break;
+                    case 1:
+                        WriteLine("\n");
+                        WriteLine(Plot.PlotFive[1]);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+
+                        break;
+                }
+            }
+            void ShowUserPartSix()
+            {
+                Clear();
+                string prompt = @"
+                                                     
+                                        ";
+
+                string[] options = { "A) ", "B) " };
+                Menu ControlRoom = new Menu(prompt, options);
+                int selectedIndex = ControlRoom.Run();
+
+                switch (selectedIndex)
+                {
+                    case 0:
+                        WriteLine("\n");
+                        WriteLine(Plot.PlotSix[0]);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+
+                        break;
+                    case 1:
+                        WriteLine("\n");
+                        WriteLine(Plot.PlotSix[1]);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+
+                        break;
+                }
+            }
+
+            void ShowUserPartSeven()
             {
                 Clear();
                 string prompt = @"
@@ -371,6 +441,71 @@ namespace TheArtifactGame
                         break;
                 }
             }
+
+            void ShowUserPartEight()
+            {
+                Clear();
+                string prompt = @"
+                                                     
+                                        ";
+
+                string[] options = { "A) ", "B) " };
+                Menu ControlRoom = new Menu(prompt, options);
+                int selectedIndex = ControlRoom.Run();
+
+                switch (selectedIndex)
+                {
+                    case 0:
+                        WriteLine("\n");
+                        WriteLine(Plot.PlotThree);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+
+                        break;
+                    case 1:
+                        WriteLine("\n");
+                        WriteLine(Plot.PlotThree);
+                        WriteLine("");
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+
+
+                        break;
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
 
         //Display About Section

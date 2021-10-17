@@ -24,11 +24,12 @@ namespace TheArtifactGame
         //Story Telling String Arrays
         public string[] PlotIntro =
         {
+         //0
          "It is the Clestial Year 2085 and Humanity has reached for the stars once more. " +
          "Sparking a the new age of Exploration!\n"+
          "This is the Beginning of your Story...\n",
-         
-         "You Wake up from Cryostatis almost finished on your 2 month journey to Jupiter.\n"+
+         //1
+         "You Wake up from Cryostasis almost finished on your 2 month journey to Jupiter.\n"+
          "Upon Awaking your greeted by your Robot companion Aurora who seems to be pointing something at you.\n"+
          "Still a little sleepy you take a closer look only to realize she is pointing her blaster at you."
         };
@@ -37,25 +38,26 @@ namespace TheArtifactGame
 
         public string[] PlotOne =
          {
+         //0
          $"You decide to check out the navigation systems\n" +
          $"You exit out of your room making your way down the corridor with its light flickering back and forth.\n"+
          $"As you walk past the light you bang your fist against the wall causing the light to fix itself.\n"+
          $"Entering the bridge you're greeted with specks of light out the window filling up the darkness of space.\n" +
          $"You open up your control panel, acessing the navigational systems.\n"+
          $"The ship is still on its correct course and will reach its destination in two weeks.\n",
-
+         //1
          $"You decide to check on the engine coolant systems.\n" +
          $"You exit out of your room taking a left down the corridor.\n"+
          $"You walk into the engine control room and grab the tablet hanging on the wall.\n"+
          $"With the tablet you note the current temperatures and adjust the fuse valves for optimal performance.",
-
+         //2
          $"Suddenly an alarm siren goes off and the lights switch to emrgency mode.\n" +
          $"You quickly make your way to the control panel to see it is a distress singal coming from a ship at heading 294, mark 35.\n"+
          $"You make your way to the pilot seat and replot your destination towards the the distress signal.",
-
+         //3
          $"As you exit the engine room the alarm system goes off and the lights switch to emergency mode.\n"+
          $"You quickly make your way to the bridge to check out the whats causing the alarm.\n"+
-         $"Aroura looks at you and reveals that there is a distress singal from another ship at heading 294, mark 35.\n"+
+         $"{Robot.PlayerName} looks at you and reveals that there is a distress singal from another ship at heading 294, mark 35.\n"+
          $"You make your way to the pilot seat and replot your destination towards the the distress signal.",
         };
 
@@ -64,19 +66,12 @@ namespace TheArtifactGame
 
         public string[] PlotTwo =
         {
-         $"You decide to board the smoking ship and put on your space suit with the help of Aurora",
+         //0 Boarding Ship
+         $"You decide to board the smoking ship and put on your space suit with the help of Aurora.",
          
-
-         $"You decide to user the ships high tech scanners to look for any life forms on the ship",
+         //1 Scanning Ship
+         $"You decide to user the ships high tech scanners to look for any life forms on the ship.",
          
-
-
-
-         $""+
-         $""+
-         $""+
-         $""+
-         $"",
 
 
 
@@ -84,10 +79,10 @@ namespace TheArtifactGame
 
         public string[] PlotThree =
         {
-
+         //0
          $"You Hop into the Airlock preparing to board the ship.\n"+
          $"{Robot.PlayerName} closes airlock and relases the door causing you to get pulled into open space.\n"+
-         $"You use your jet propulsion to maneuver your way to the smoking ship.\n"+
+         $"You use your jet propulsion to maneuver your way on to the smoking ship.\n"+
          $"Grabbing onto the ships exterior handlebars you pull the emergency lever on the exterior door and make your way into the ship.\n",
         
 
@@ -99,11 +94,45 @@ namespace TheArtifactGame
 
         public string[] PlotFour =
         {
+         //0 Left
+         $"Walking down the corridor you notice sets of similar doorways on both sides.\n"+
+         $"You decide to check out each door way as you walk past them.\n" +
+         $"Each one having the same design as one another.\n" +
+         $"Nothing of interest in any of the rooms.\n"+
+         $"As you move closer to the last door the ship begins to shake and hear something collapse behind you.\n",
+         //1 Right
+         $"Your gut feeling invites you to take a right so you follow it and walk down the corridor.\n"+
+         $"As you walk down the corridor you notice instability of the support structures all around you.\n"+
+         $"Then suddenly the ship shakes as a result of an explosion causing your surrounds to collapse in all around you.\n",
+         //2 Forwards
+         $""+
+         $""+
+         $"",
+         //3 Backwards
+         $""+
+         $""+
+         $"",
+
+        };
+
+        public string[] PlotFive =
+        {
           $"",
 
 
         };
+        public string[] PlotSix =
+        {
+          $"",
 
+
+        };
+        public string[] PlotSeven =
+        {
+          $"",
+
+
+        };
         public string[] Death =
         {
             @"                
@@ -167,20 +196,22 @@ namespace TheArtifactGame
 
         }
 
+        //Dialog Method for PlotTwo Option A
         public void PlotDialogPartTwoA()
         {
          Dialog(
              $"{Robot.PlayerName}: Your all set!\n"+
-             $"{Robot.PlayerName}: Make sure you don't die! I don't want to fix your mess.\n"
-             ,ConsoleColor.Yellow
+             $"{Robot.PlayerName}: Make sure you don't die! I don't want to fix your mess.\n",
+             ConsoleColor.Yellow
              );
             Dialog(
              $"{Voyager.PlayerName}: Alright Thanks for the advice!\n" +
-             $"{Voyager.PlayerName}: I know you just don't want to be lonely.\n"
-             , ConsoleColor.Blue
+             $"{Voyager.PlayerName}: I know you just don't want to be lonely.\n",
+             ConsoleColor.Blue
              );
 
         }
+        //Dialog Method for PlotTwo Option B
         public void PlotDialogPartTwoB()
         {
             Dialog(
@@ -189,12 +220,46 @@ namespace TheArtifactGame
                 ) ;
             Dialog(
                 $"{Robot.PlayerName}: Preping Scanners\n" +
-                $"{Robot.PlayerName}: Scanning ship NOW!\n",
+                $"{Robot.PlayerName}: Scanning ship NOW!\n",   
+                ConsoleColor.Yellow
+                );
+            Thread.Sleep(1500);
+            Dialog(
+                $"{Robot.PlayerName}: Two lifeforms detected at the bridge of the ship!\n"+
+                $"{Robot.PlayerName}: Shall I get the space suit?\n",
+                ConsoleColor.Yellow
+                );
+            Thread.Sleep(2000);
+            Dialog(
+                $"{Voyager.PlayerName}: Yea grab it.\n"+
+                $"{Voyager.PlayerName}: Double check the oxygen tanks as well as the propulsion gas.\n",
+                ConsoleColor.Blue
+                );
+        }
+
+        public void PlotDialogPartFourA()
+        {
+            Dialog(
+                $"{Voyager.PlayerName}: {Robot.PlayerName} what was that?\n", 
+                ConsoleColor.Blue
+                );
+            Dialog(
+                $"{Robot.PlayerName}: There seems to have been a secondary explosion from the previous smoking area.\n",
+                ConsoleColor.Yellow
+                );
+            Dialog(
+                $"{Voyager.PlayerName}: Previous?\n",
+                ConsoleColor.Blue
+                );
+            Dialog(
+                $"{Robot.PlayerName}: It's on fire now.\n",
                 ConsoleColor.Yellow
                 );
 
-
-
         }
+
+
+
+
     }
 }
