@@ -10,7 +10,7 @@ namespace TheArtifactGame
     {
         List<string> PlayerInventory = new List<string>();
         Player Voyager = new Player("Voyager");
-        Player Robot = new Player("Aurora");
+        Player Robot = new Player("Aurora",List<);
         Story Plot = new Story();
         
 
@@ -100,9 +100,9 @@ namespace TheArtifactGame
             Clear();
 
             WriteLine(Plot.PlotIntro[0]);
-            Thread.Sleep(4000);
+            Thread.Sleep(6500);
             WriteLine(Plot.PlotIntro[1]);
-            Thread.Sleep(9000);
+            Thread.Sleep(7000);
             Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
 
@@ -302,7 +302,7 @@ namespace TheArtifactGame
                 Each pathway looking rather similar.
                                         ";
 
-                string[] options = { "A)Left", "B)Right ","C)Forward ","D)Backwards" };
+                string[] options = { "A)Left", "B)Right ","C)Forward "};
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
@@ -311,6 +311,8 @@ namespace TheArtifactGame
                     case 0:
                         WriteLine("You Choose to go Left\n");
                         WriteLine(Plot.PlotFour[0]);
+                        Thread.Sleep(5000);
+                        WriteLine(Plot.PlotFour[3]);
                         WriteLine("");
                         Thread.Sleep(8500);
                         Plot.PlotDialogPartFourA();
@@ -324,26 +326,24 @@ namespace TheArtifactGame
                         Thread.Sleep(12000);
                         Clear();
                         WriteLine(Plot.Death[0]);
-                        WriteLine("You Have Died");
+                        WriteLine(Plot.Death[1]);
                         WriteLine("");
                         Enterkey("Press Enter to Continue to decision phase", ConsoleColor.Cyan);
 
-                        
+                       ShowUserPartFour();
                         break;
                     case 2:
                         WriteLine("You Choose to go Forward\n");
                         WriteLine(Plot.PlotFour[2]);
+                        Thread.Sleep(9000);
+                        Plot.PlotDialogPartFourB();
+                        WriteLine(Plot.PlotFour[3]);
                         WriteLine("");
+                        Thread.Sleep(95000);
+                        Plot.PlotDialogPartFourA();
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
                         ShowUserPartFive();
                         break;
-                    case 3:
-                        WriteLine("You Choose to go Backward\n");
-                        WriteLine(Plot.PlotFour[3]);
-                        WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-                        ShowUserPartFive();
-                        break; 
                 }
             }
 
@@ -351,26 +351,43 @@ namespace TheArtifactGame
             {
                 Clear();
                 string prompt = @"
-                                                     
-                                        ";
+                                       
 
-                string[] options = { "A) ", "B) " };
+
+
+
+
+
+
+            
+                 As a result of the explosion, the light switch to emergency power saving mode.
+                 Ignoring the sudden collapse of whatever was behind you, you keep moving in the same direction.
+                 Opening the last doorway infront you notice a mysterious humanoid silhouette standing a couple meters ahead of you. 
+                 They don't seem to notice your enterance. What do you do?
+                 
+                                ";
+
+                string[] options = { "A) Call out to them", "B) Observe them" };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
                 switch (selectedIndex)
                 {
                     case 0:
-                        WriteLine("\n");
+                        WriteLine("You Choose to Call out to them\n");
                         WriteLine(Plot.PlotFive[0]);
+                        Thread.Sleep(5000);
+                        Plot.PlotDialogPartFiveA();
+                        Thread.Sleep(6000);
+                        WriteLine(Plot.PlotFive[1]);
                         WriteLine("");
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
 
                         break;
                     case 1:
-                        WriteLine("\n");
-                        WriteLine(Plot.PlotFive[1]);
+                        WriteLine("You Choose to Observe them\n");
+                        WriteLine(Plot.PlotFive[3]);
                         WriteLine("");
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 

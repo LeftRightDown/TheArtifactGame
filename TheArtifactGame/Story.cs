@@ -11,6 +11,7 @@ namespace TheArtifactGame
         //Instance of Player
         Player Voyager = new Player("Voyager");
         static Player Robot = new Player("Aurora");
+        static Player Unkown = new Player("Uknown");
        //Dialog method
         void Dialog(string message, ConsoleColor Color)
         {
@@ -98,27 +99,41 @@ namespace TheArtifactGame
          $"Walking down the corridor you notice sets of similar doorways on both sides.\n"+
          $"You decide to check out each door way as you walk past them.\n" +
          $"Each one having the same design as one another.\n" +
-         $"Nothing of interest in any of the rooms.\n"+
-         $"As you move closer to the last door the ship begins to shake and hear something collapse behind you.\n",
+         $"Nothing of interest in any of the rooms.\n",
          //1 Right
          $"Your gut feeling invites you to take a right so you follow it and walk down the corridor.\n"+
          $"As you walk down the corridor you notice instability of the support structures all around you.\n"+
          $"Then suddenly the ship shakes as a result of an explosion causing your surrounds to collapse in all around you.\n",
          //2 Forwards
-         $""+
-         $""+
-         $"",
-         //3 Backwards
-         $""+
-         $""+
-         $"",
-
+         $"You decide to go straight as the two other options seems to uninterest you.\n"+
+         $"As you walk down the corridor you seem to notice black stain marks along the left side of the wall.\n"+
+         $"Taking a closer look you realize these are laser blast marks putting you on edge",
+         
+         //3 Explosion
+         $"As you move closer to the end of the corridor the ship begins to shake\n"+
+         $"As a result, it puts off balance and fall to the ground\n",
         };
 
         public string[] PlotFive =
         {
-          $"",
+         //0 Call out to them
+         $"You call out to the mysterious silhouette .",
+         //1
+         $"No response"+
+         $"No change in movement",
+         //2
+         $"You hastily approach the mysterious silhouette but notice that there is another person in front of them"+
+         $"You start to slowly reduce your speed",
 
+
+
+         // 3 Observe them
+         $"You quitely move backwards and behind the doorway"+
+         $"Peaking your head you watch them from afar"+
+         $"You begin to realize that the mysterious figure is talking to someone else"+
+         $""+
+         $"",
+        
 
         };
         public string[] PlotSix =
@@ -159,7 +174,15 @@ namespace TheArtifactGame
                            ...... MNNNNO! .. PPPPPPPPP .. MMNON!........
                               ...... OO! ................. ON! .......
                                  ................................
-            "
+            ",
+
+            @"
+                                 ▄· ▄▌      ▄• ▄▌    ·▄▄▄▄  ▪  ▄▄▄ .·▄▄▄▄  
+                                ▐█▪██▌▪     █▪██▌    ██▪ ██ ██ ▀▄.▀·██▪ ██ 
+                                ▐█▌▐█▪ ▄█▀▄ █▌▐█▌    ▐█· ▐█▌▐█·▐▀▀▪▄▐█· ▐█▌
+                                 ▐█▀·.▐█▌.▐▌▐█▄█▌    ██. ██ ▐█▌▐█▄▄▌██. ██ 
+                                  ▀ •  ▀█▄▀▪ ▀▀▀     ▀▀▀▀▀• ▀▀▀ ▀▀▀ ▀▀▀▀▀• 
+             ",
         };
 
 
@@ -201,7 +224,7 @@ namespace TheArtifactGame
         {
          Dialog(
              $"{Robot.PlayerName}: Your all set!\n"+
-             $"{Robot.PlayerName}: Make sure you don't die! I don't want to fix your mess.\n",
+             $"{Robot.PlayerName}: Make sure you don't die! I don't want to have to leave the saftey of the ship.\n",
              ConsoleColor.Yellow
              );
             Dialog(
@@ -225,7 +248,8 @@ namespace TheArtifactGame
                 );
             Thread.Sleep(1500);
             Dialog(
-                $"{Robot.PlayerName}: Two lifeforms detected at the bridge of the ship!\n"+
+                $"{Robot.PlayerName}: Two lifeforms detected!\n"+
+                $"{Robot.PlayerName}: One at the rear of the ship while the other is in the hull\n"+
                 $"{Robot.PlayerName}: Shall I get the space suit?\n",
                 ConsoleColor.Yellow
                 );
@@ -240,7 +264,7 @@ namespace TheArtifactGame
         public void PlotDialogPartFourA()
         {
             Dialog(
-                $"{Voyager.PlayerName}: {Robot.PlayerName} what was that?\n", 
+                $"{Voyager.PlayerName}: {Robot.PlayerName} Can you hear me? What was that?\n", 
                 ConsoleColor.Blue
                 );
             Dialog(
@@ -258,7 +282,43 @@ namespace TheArtifactGame
 
         }
 
+        public void PlotDialogPartFourB()
+        {
+            Dialog(
+                $"{Voyager.PlayerName}: {Robot.PlayerName} There seems to have been some sort of conflict.\n" +
+                $"{Voyager.PlayerName}: Blaster marks along the walls\n",
+                ConsoleColor.Blue
+                );
+            Dialog(
+                $"{Robot.PlayerName}: Dully Noted. Stay vigilant {Voyager.PlayerName}.\n",
+                ConsoleColor.Yellow
+                );
 
+        }
+
+        public void PlotDialogPartFiveA()
+        {
+            Dialog(
+                $"{Voyager.PlayerName}: HEY!"+
+                $"{Voyager.PlayerName}: HEY OVER HERE!",
+                ConsoleColor.Blue
+                );
+            Thread.Sleep(1000);
+            Dialog(
+                $"{Unkown.PlayerName}:              ",
+                ConsoleColor.Red
+                );
+            Thread.Sleep(1000);
+            Dialog(
+                $"{Voyager.PlayerName}: I recieved your distress signal!"+
+                $"{Voyager.PlayerName}: Hey you ok?",
+                ConsoleColor.Blue
+                );
+
+
+
+
+        }
 
 
     }
