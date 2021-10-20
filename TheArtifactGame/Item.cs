@@ -15,7 +15,7 @@ namespace TheArtifactGame
         //constructor
         public Item()
         {
-            string[] Items = { "The Artifact", "Gauge Tablet", "Stone" };
+            string[] Items = { "The Artifact", "Gauge Tablet", "Schematics","Key Card" };
             string[] Descriptions = { " A Relic of a long lost civilization known as the Xurr.\nRumored to hold the long lost secretes to their technological advanceds.",
          "Touch screen tablet that displays gauge information","Logically Flawed"};
 

@@ -14,10 +14,10 @@ namespace TheArtifactGame
 
 
         //Player Instance 
-        public Player(string name, List<string> inventory)
+        public Player(string name)
         {
             PlayerName = name;
-            PlayerInventory = inventory;
+            //PlayerInventory = inventory;
             
         }
 

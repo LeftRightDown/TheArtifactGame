@@ -12,7 +12,7 @@ namespace TheArtifactGame
         Player Voyager = new Player("Voyager");
         static Player Robot = new Player("Aurora");
         static Player Unkown = new Player("Uknown");
-       //Dialog method
+        //Dialog method
         void Dialog(string message, ConsoleColor Color)
         {
             ForegroundColor = Color;
@@ -27,12 +27,13 @@ namespace TheArtifactGame
         {
          //0
          "It is the Clestial Year 2085 and Humanity has reached for the stars once more. " +
-         "Sparking a the new age of Exploration!\n"+
-         "This is the Beginning of your Story...\n",
+         "Sparking a the new age of Exploration!\n" +
+         "You are a hot-shot pilot looking for a way to make tons of money\n"+
+         "This is the beginning of your Story...\n",
          //1
-         "You Wake up from Cryostasis almost finished on your 2 month journey to Jupiter.\n"+
+         "You Wake up from your nap on your way to meet up with a black market merchant for information.\n" +
          "Upon Awaking your greeted by your Robot companion Aurora who seems to be pointing something at you.\n"+
-         "Still a little sleepy you take a closer look only to realize she is pointing her blaster at you."
+         "Still a little sleepy you take a closer look only to realize she is pointing her blaster at you.\n"
         };
 
 
@@ -58,7 +59,7 @@ namespace TheArtifactGame
          //3
          $"As you exit the engine room the alarm system goes off and the lights switch to emergency mode.\n"+
          $"You quickly make your way to the bridge to check out the whats causing the alarm.\n"+
-         $"{Robot.PlayerName} looks at you and reveals that there is a distress singal from another ship at heading 294, mark 35.\n"+
+         $"{Robot.PlayerName} looks at you and reveals that there is a distress singal from a ship at heading 294, mark 35.\n"+
          $"You make your way to the pilot seat and replot your destination towards the the distress signal.",
         };
 
@@ -68,11 +69,11 @@ namespace TheArtifactGame
         public string[] PlotTwo =
         {
          //0 Boarding Ship
-         $"You decide to board the smoking ship and put on your space suit with the help of Aurora.",
+         $"You decide to board the merchant ship and put on your space suit with the help of Aurora.",
          
          //1 Scanning Ship
-         $"You decide to user the ships high tech scanners to look for any life forms on the ship.",
-         
+         $"You decide to use the ships high tech scanners to look for any life forms on the ship.",
+
 
 
 
@@ -85,7 +86,7 @@ namespace TheArtifactGame
          $"{Robot.PlayerName} closes airlock and relases the door causing you to get pulled into open space.\n"+
          $"You use your jet propulsion to maneuver your way on to the smoking ship.\n"+
          $"Grabbing onto the ships exterior handlebars you pull the emergency lever on the exterior door and make your way into the ship.\n",
-        
+
 
 
 
@@ -107,33 +108,31 @@ namespace TheArtifactGame
          //2 Forwards
          $"You decide to go straight as the two other options seems to uninterest you.\n"+
          $"As you walk down the corridor you seem to notice black stain marks along the left side of the wall.\n"+
-         $"Taking a closer look you realize these are laser blast marks putting you on edge",
+         $"Taking a closer look you realize these are laser blast marks.",
          
          //3 Explosion
          $"As you move closer to the end of the corridor the ship begins to shake\n"+
-         $"As a result, it puts off balance and fall to the ground\n",
+         $"As a result, it puts off balance and you fall to the ground.\n",
         };
 
         public string[] PlotFive =
         {
-         //0 Call out to them
-         $"You call out to the mysterious silhouette .",
-         //1
-         $"No response"+
-         $"No change in movement",
-         //2
-         $"You hastily approach the mysterious silhouette but notice that there is another person in front of them"+
-         $"You start to slowly reduce your speed",
-
-
-
-         // 3 Observe them
-         $"You quitely move backwards and behind the doorway"+
-         $"Peaking your head you watch them from afar"+
-         $"You begin to realize that the mysterious figure is talking to someone else"+
-         $""+
-         $"",
+         //0 Walk Past
+         $"You ignore the body on the ground and keep walking forward towards the bridge.\n" +
+         $"You walk up to the door to enter the bridge but the door won't budge with a keycard.\n" +
+         $"So you head back to the dead body.\n",
+         // 1 Investigate
+         $"You move closer to the body and come to the conlusion that this was the merchant.\n" +
+         $"Rummaging through his stuff you find a keycard that you assume is useful.\n" +
+         $"You start heading towards the bridge and open it with his key card.\n",
         
+         //2 Bridge
+         $"Entering the bridge you quickly look for anything useful and find the ship schematics.\n" +
+         $"Then you head back into the hallway.\n",
+
+
+
+
 
         };
         public string[] PlotSix =
@@ -189,7 +188,7 @@ namespace TheArtifactGame
         // Plot Dialog Method Call
         public void PlotDialogPartOne()
         {
-            
+
             //Character Setup
             WriteLine("(Enter your name)");
             Dialog(
@@ -200,36 +199,37 @@ namespace TheArtifactGame
             Dialog(
                    $"{Robot.PlayerName}: {Voyager.PlayerName}?\n" +
                    $"{Robot.PlayerName}: oh oh I remember you!\n" +
-                   $"{Robot.PlayerName}: {Voyager.PlayerName} My HUMAN! I totally didn't forget about you....\n", 
+                   $"{Robot.PlayerName}: {Voyager.PlayerName} My HUMAN!\n" +
+                   $"{Robot.PlayerName}: I totally didn't forget about you....\n",
                    ConsoleColor.Yellow);
             Thread.Sleep(4500);
             Dialog(
-                   $"{Voyager.PlayerName}: Who do you think it was in the sleep pod?\n",
+                   $"{Voyager.PlayerName}: We really need to fix your memory drive..\n",
                    ConsoleColor.Blue
                   );
             Thread.Sleep(3000);
             Dialog(
                    $"{Robot.PlayerName}: Anyways! Welcome back {Voyager.PlayerName}!\n" +
-                   $"{Robot.PlayerName}: I've been keeping this ship together while you took your monthly nap\n"+
-                   $"{Robot.PlayerName}: But I made sure to leave something for you to do!\n"+
+                   $"{Robot.PlayerName}: I've been keeping this ship together while you took your nap\n" +
+                   $"{Robot.PlayerName}: But I made sure to leave something for you to do!\n" +
                    $"{Robot.PlayerName}: Here is this weeks to-do list\n",
                    ConsoleColor.Yellow
                    );
-           
+
 
         }
 
         //Dialog Method for PlotTwo Option A
         public void PlotDialogPartTwoA()
         {
-         Dialog(
-             $"{Robot.PlayerName}: Your all set!\n"+
-             $"{Robot.PlayerName}: Make sure you don't die! I don't want to have to leave the saftey of the ship.\n",
-             ConsoleColor.Yellow
-             );
             Dialog(
-             $"{Voyager.PlayerName}: Alright Thanks for the advice!\n" +
-             $"{Voyager.PlayerName}: I know you just don't want to be lonely.\n",
+                $"{Robot.PlayerName}: Your all set!\n" +
+                $"{Robot.PlayerName}: What do you Plan to do?\n",
+                ConsoleColor.Yellow
+                );
+            Dialog(
+             $"{Voyager.PlayerName}: Looks like we got free loot.\n" +
+             $"{Voyager.PlayerName}: Stay on the ship for me.\n",
              ConsoleColor.Blue
              );
 
@@ -240,23 +240,21 @@ namespace TheArtifactGame
             Dialog(
                 $"{Voyager.PlayerName}: {Robot.PlayerName} Scan the ship!\n",
                 ConsoleColor.Blue
-                ) ;
+                );
             Dialog(
-                $"{Robot.PlayerName}: Preping Scanners\n" +
-                $"{Robot.PlayerName}: Scanning ship NOW!\n",   
+                $"{Robot.PlayerName}: Scanning!\n",
                 ConsoleColor.Yellow
                 );
             Thread.Sleep(1500);
             Dialog(
-                $"{Robot.PlayerName}: Two lifeforms detected!\n"+
-                $"{Robot.PlayerName}: One at the rear of the ship while the other is in the hull\n"+
-                $"{Robot.PlayerName}: Shall I get the space suit?\n",
+                $"{Robot.PlayerName}: No lifeforms detected!\n" +
+                $"{Robot.PlayerName}: What do you Plan to do?\n",
                 ConsoleColor.Yellow
                 );
             Thread.Sleep(2000);
             Dialog(
-                $"{Voyager.PlayerName}: Yea grab it.\n"+
-                $"{Voyager.PlayerName}: Double check the oxygen tanks as well as the propulsion gas.\n",
+                $"{Voyager.PlayerName}: Looks like we got free loot.\n" +
+                $"{Voyager.PlayerName}: Stay on the ship for me.",
                 ConsoleColor.Blue
                 );
         }
@@ -264,7 +262,7 @@ namespace TheArtifactGame
         public void PlotDialogPartFourA()
         {
             Dialog(
-                $"{Voyager.PlayerName}: {Robot.PlayerName} Can you hear me? What was that?\n", 
+                $"{Voyager.PlayerName}: {Robot.PlayerName} Can you hear me? What was that?\n",
                 ConsoleColor.Blue
                 );
             Dialog(
@@ -282,44 +280,7 @@ namespace TheArtifactGame
 
         }
 
-        public void PlotDialogPartFourB()
-        {
-            Dialog(
-                $"{Voyager.PlayerName}: {Robot.PlayerName} There seems to have been some sort of conflict.\n" +
-                $"{Voyager.PlayerName}: Blaster marks along the walls\n",
-                ConsoleColor.Blue
-                );
-            Dialog(
-                $"{Robot.PlayerName}: Dully Noted. Stay vigilant {Voyager.PlayerName}.\n",
-                ConsoleColor.Yellow
-                );
-
-        }
-
-        public void PlotDialogPartFiveA()
-        {
-            Dialog(
-                $"{Voyager.PlayerName}: HEY!"+
-                $"{Voyager.PlayerName}: HEY OVER HERE!",
-                ConsoleColor.Blue
-                );
-            Thread.Sleep(1000);
-            Dialog(
-                $"{Unkown.PlayerName}:              ",
-                ConsoleColor.Red
-                );
-            Thread.Sleep(1000);
-            Dialog(
-                $"{Voyager.PlayerName}: I recieved your distress signal!"+
-                $"{Voyager.PlayerName}: Hey you ok?",
-                ConsoleColor.Blue
-                );
-
-
-
-
-        }
-
-
     }
+     
 }
+    

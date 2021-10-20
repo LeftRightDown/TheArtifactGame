@@ -10,7 +10,7 @@ namespace TheArtifactGame
     {
         List<string> PlayerInventory = new List<string>();
         Player Voyager = new Player("Voyager");
-        Player Robot = new Player("Aurora",List<);
+        Player Robot = new Player("Aurora");
         Story Plot = new Story();
         
 
@@ -109,10 +109,11 @@ namespace TheArtifactGame
             Plot.PlotDialogPartOne();
             Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
             ShowUserPartOne();
-
-
-
             
+
+
+
+
 
         }
 
@@ -150,7 +151,7 @@ namespace TheArtifactGame
             It seems Aurora has left you two jobs to do: Check Navigation System or Check Coolant System.
                         ";
 
-            string[] options = { "A) Check Navigation System", "B) Check Coolant System" };
+            string[] options = { "A) Check Navigation System", "B) Check Coolant System","C) Inventory" };
             Menu HallwayMenu = new Menu(prompt, options);
             int selectedIndex = HallwayMenu.Run();
 
@@ -177,7 +178,13 @@ namespace TheArtifactGame
                     WriteLine(Plot.PlotOne[3]);
                     Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
-                    ShowUserPartTwo();
+                    //ShowUserPartTwo();
+                    ShowUserPartFiveA();
+                    break;
+                case 2:
+                    WriteLine("You Choose to check your Inventory");
+                    WriteLine("");
+                    //Check inventory method
                     break;
             }
 
@@ -204,6 +211,7 @@ namespace TheArtifactGame
                                                                          SSt  `------'`
 
                       You arrive to the location of the distress signal and see a smoking ship outside the window.
+                      You realize that this is the merchant ship you were going to meet with.
                       You message the distress ship but recive no response. 
                       So you are left with two options: Boarding the ship or Scanning it for life forms.
 
@@ -302,7 +310,7 @@ namespace TheArtifactGame
                 Each pathway looking rather similar.
                                         ";
 
-                string[] options = { "A)Left", "B)Right ","C)Forward "};
+                string[] options = { "A) Left", "B) Right ","C) Forward","D) Inventory"};
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
@@ -318,7 +326,7 @@ namespace TheArtifactGame
                         Plot.PlotDialogPartFourA();
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
-                        ShowUserPartFive();
+                        ShowUserPartFiveA();
                         break;
                     case 1:
                         WriteLine("You Choose to go Right\n");
@@ -336,93 +344,124 @@ namespace TheArtifactGame
                         WriteLine("You Choose to go Forward\n");
                         WriteLine(Plot.PlotFour[2]);
                         Thread.Sleep(9000);
-                        Plot.PlotDialogPartFourB();
+                        
                         WriteLine(Plot.PlotFour[3]);
                         WriteLine("");
-                        Thread.Sleep(95000);
+                        Thread.Sleep(9500);
                         Plot.PlotDialogPartFourA();
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-                        ShowUserPartFive();
+                        ShowUserPartFiveB();
+                        break;
+                    case 3:
+                        WriteLine("You Choose to check your Inventory");
+                        WriteLine("");
+                        //Check inventory method
                         break;
                 }
             }
 
-            void ShowUserPartFive()
+            void ShowUserPartFiveA()
             {
                 Clear();
                 string prompt = @"
-                                       
 
 
+                        ██╗    ██╗██╗██████╗     
+                        ██║    ██║██║██╔══██╗    
+                        ██║ █╗ ██║██║██████╔╝    
+                        ██║███╗██║██║██╔═══╝     
+                        ╚███╔███╔╝██║██║         
+                         ╚══╝╚══╝ ╚═╝╚═╝ 
 
-
-
-
-
-            
-                 As a result of the explosion, the light switch to emergency power saving mode.
+                    
+                 You pick yourself up but your vision is detered because of the lights switching ot emergency mode.
                  Ignoring the sudden collapse of whatever was behind you, you keep moving in the same direction.
-                 Opening the last doorway infront you notice a mysterious humanoid silhouette standing a couple meters ahead of you. 
-                 They don't seem to notice your enterance. What do you do?
-                 
+                 Opening the last doorway you notice a body lying on the ground agaisnt the wall.
                                 ";
 
-                string[] options = { "A) Call out to them", "B) Observe them" };
+                string[] options = { "A) Ignore", "B) Investigate","C) Inventory" };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
                 switch (selectedIndex)
                 {
                     case 0:
-                        WriteLine("You Choose to Call out to them\n");
-                        WriteLine(Plot.PlotFive[0]);
-                        Thread.Sleep(5000);
-                        Plot.PlotDialogPartFiveA();
-                        Thread.Sleep(6000);
-                        WriteLine(Plot.PlotFive[1]);
+                        WriteLine("You Choose to Ignore.");
                         WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
-
+                        WriteLine(Plot.PlotFive[0]);
+                        Thread.Sleep(2000);
+                        Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+                        ShowUserPartFiveA();
                         break;
                     case 1:
-                        WriteLine("You Choose to Observe them\n");
-                        WriteLine(Plot.PlotFive[3]);
+                        WriteLine("You Choose to Investigate.");
                         WriteLine("");
+                        WriteLine(Plot.PlotFive[1]);
+                        Thread.Sleep(5500);
+                        WriteLine(Plot.PlotFive[2]);
+                        Thread.Sleep(1500);
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
-
+                        ShowUserPartFiveB();
+                        break;
+                    case 2:
+                        WriteLine("You Choose to check your Inventory");
+                        WriteLine("");
+                        //Check inventory method
                         break;
                 }
             }
-            void ShowUserPartSix()
+            void ShowUserPartFiveB()
             {
                 Clear();
                 string prompt = @"
-                                                     
+                     _____________________________________________
+                    |.'',                                     ,''.|
+                    |.'.'',                                 ,''.'.|
+                    |.'.'.'',                             ,''.'.'.|
+                    |.'.'.'.'',                         ,''.'.'.'.|
+                    |.'.'.'.'.|                         |.'.'.'.'.|
+                    |.'.'.'.'.|===;                 ;===|.'.'.'.'.|
+                    |.'.'.'.'.|:::|',             ,'|:::|.'.'.'.'.|
+                    |.'.'.'.'.|---|'.|, _______ ,|.'|---|.'.'.'.'.|
+                    |.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|
+                    |,',',',',|---|',|'|???????|'|,'|---|,',',',',|
+                    |.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|
+                    |.'.'.'.'.|---|','   /%%%\   ','|---|.'.'.'.'.|
+                    |.'.'.'.'.|===:'    /%%%%%\    ':===|.'.'.'.'.|
+                    |.'.'.'.'.|%%%%%%%%%%%%%%%%%%%%%%%%%|.'.'.'.'.|
+                    |.'.'.'.','       /%%%%%%%%%\       ','.'.'.'.|
+                    |.'.'.','        /%%%%%%%%%%%\        ','.'.'.|
+                    |.'.','         /%%%%%%%%%%%%%\         ','.'.|
+                    |.','          /%%%%%%%%%%%%%%%\          ','.|
+                    |;____________/%%%%%Spicer%%%%%%\____________;|                 
                                         ";
 
-                string[] options = { "A) ", "B) " };
+                string[] options = {"A) Left", "B) Forward, C) Inventory " };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
                 switch (selectedIndex)
                 {
                     case 0:
-                        WriteLine("\n");
+                        WriteLine("You Choose to go Left\n");
                         WriteLine(Plot.PlotSix[0]);
                         WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
-
+                        Thread.Sleep(1200);
+                        Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+                        ShowUserPartFiveB();
                         break;
                     case 1:
-                        WriteLine("\n");
+                        WriteLine("You Choose to go Forward\n");
                         WriteLine(Plot.PlotSix[1]);
                         WriteLine("");
+                        Thread.Sleep(5000);
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
-
+                        break;
+                    case 2:
+                        WriteLine("You Choose to check your Inventory");
+                        WriteLine("");
+                        //Check inventory method
                         break;
                 }
             }
