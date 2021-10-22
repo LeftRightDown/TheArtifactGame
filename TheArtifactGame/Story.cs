@@ -108,11 +108,17 @@ namespace TheArtifactGame
          //2 Forwards
          $"You decide to go straight as the two other options seems to uninterest you.\n"+
          $"As you walk down the corridor you seem to notice black stain marks along the left side of the wall.\n"+
-         $"Taking a closer look you realize these are laser blast marks.",
+         $"Taking a closer look you realize these are laser blast marks.\n",
          
-         //3 Explosion
-         $"As you move closer to the end of the corridor the ship begins to shake\n"+
-         $"As a result, it puts off balance and you fall to the ground.\n",
+         //3 Forwards end
+         $"Reaching the end of the corridor you encounter big blast doors resembling a storage room.\n" +
+         $"However you are unable to open it as it requires a keycard.\n" +
+         $"So you head back to the intersection as take a left.",
+
+         
+         //4 Explosion
+         $"Suddently the ship begins to shake putting you off balance and falling to the ground.",
+         
         };
 
         public string[] PlotFive =
@@ -137,13 +143,59 @@ namespace TheArtifactGame
         };
         public string[] PlotSix =
         {
-          $"",
+          //0 Left
+          $"You head back to the direction of the bridge.\n" +
+          $"However as soon as you reach the dead merchant you realise its pointles.\n" +
+          $"So you head back to the intersection.",
+          //1 Forward
+          $"Walking forwards you reach the storage room and scan a key card.\n"+
+          $"The doors slide wide open and you are greeted with an immense amount of loot filling the entire room.\n" +
+          $"Out of all the riches, one item seems to catch your eye.\n" +
+          $"An golden egg shaped object with an elaborate decoration\n" +
+          $"Picking up the object a screen appears infront of it displaying a varitey of information.\n" +
+          $"You read that it is known as The Artifact, believed to be a relic of the lost civilization known as the Xurr.\n",
+         
+          //2 Escape
+          $"Suddenly the ship begins to shake again and notice that fire is beginning to spread further in.\n" +
+          $"You quickly throw The Artifact into your pouch and dash out of the room before it is encaged in fire.\n",
+          
 
 
         };
         public string[] PlotSeven =
         {
-          $"",
+          //0 Left
+          $"You take a left but run into the collapse corridor.\n" +
+          $"As soon you turn around you are engulfed in flames.",
+
+          //1 Right
+          $"Making a right you run past the dead body reaching the birdge.\n" +
+          $"Realising that there is no escape option around you, you decide check the ships controls.\n" +
+          $"Sitting in pilot seat you notice a that the ship has a built in fire safety system.\n" +
+          $"You push a random button and foam begins to release all throughout the ship stoping the fire.\n",
+
+          //2 Forward
+          $"Putting on your helmet you hastily make your towards the airlock.",
+
+          // 3 Right End
+          $"All of the sudden system alarm goes off and an explosion in the main reactor occurs.",
+
+          //4  Forward End
+          $"You push the emegency open button and the door slides wide open.\n" +
+          $"As it opens you get sucked into open space as the explosion behind you propells you onto your ship.\n" +
+          $"{Robot.PlayerName} lets you onto the ship through the exterior door.",
+        };
+        public string[] PlotEight =
+        {
+            //0 Enter the Ship
+            $"You enter the ship and are greeted by {Robot.PlayerName}.\n",
+            //1 Take out Artifact
+            $"You take out The Artifact out of your pouch and show it to {Robot.PlayerName}.\n",
+
+            //2 End
+            $"Both of you obeserve the egg and then suddenly there is an explosion."
+
+
 
 
         };
@@ -182,6 +234,24 @@ namespace TheArtifactGame
                                  ▐█▀·.▐█▌.▐▌▐█▄█▌    ██. ██ ▐█▌▐█▄▄▌██. ██ 
                                   ▀ •  ▀█▄▀▪ ▀▀▀     ▀▀▀▀▀• ▀▀▀ ▀▀▀ ▀▀▀▀▀• 
              ",
+        };
+
+        public string[] End =
+        {
+            //Ending
+            @"
+                 ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ 
+                ██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗
+                ██║  ███╗███████║██╔████╔██║█████╗      ██║   ██║██║   ██║█████╗  ██████╔╝
+                ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝      ██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗
+                ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗    ╚██████╔╝ ╚████╔╝ ███████╗██║  ██║
+                 ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝     ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝
+
+                    Congratulations you have finished the game! Thanks for Playing!
+                
+            "
+
+
         };
 
 
@@ -259,25 +329,80 @@ namespace TheArtifactGame
                 );
         }
 
-        public void PlotDialogPartFourA()
+        public void PlotDialogPartFour()
         {
             Dialog(
                 $"{Voyager.PlayerName}: {Robot.PlayerName} Can you hear me? What was that?\n",
                 ConsoleColor.Blue
                 );
+            Thread.Sleep(1200);
             Dialog(
                 $"{Robot.PlayerName}: There seems to have been a secondary explosion from the previous smoking area.\n",
                 ConsoleColor.Yellow
                 );
+            Thread.Sleep(1400);
             Dialog(
                 $"{Voyager.PlayerName}: Previous?\n",
                 ConsoleColor.Blue
                 );
+            Thread.Sleep(100);
             Dialog(
                 $"{Robot.PlayerName}: It's on fire now.\n",
                 ConsoleColor.Yellow
                 );
 
+        }
+
+        public void PlotDialogPartSeven()
+        {
+
+            Dialog(
+                $"{Voyager.PlayerName}: {Robot.PlayerName} I'm making a quick exit.\n",
+                ConsoleColor.Blue
+                );
+            Thread.Sleep(1000);
+            Dialog(
+                $"{Voyager.PlayerName}: Whats the situation outside?\n",
+                ConsoleColor.Blue
+                );
+            Thread.Sleep(1000);
+            Dialog(
+                $"{Robot.PlayerName}: Scanners indicate explosion in main reactor in approximatly 2 minutes.\n",
+                ConsoleColor.Yellow
+                );
+            Thread.Sleep(2000);
+            Dialog(
+               $"{Robot.PlayerName}: According to my calculations you do not have enough time to escape.\n",
+               ConsoleColor.Yellow
+               );
+            Thread.Sleep(2000);
+            Dialog(
+                $"{Voyager.PlayerName}:We'll see about that!\n",
+                ConsoleColor.Blue
+                );
+            Thread.Sleep(1000);
+            Dialog(
+                $"{Robot.PlayerName}: 60 Seconds!\n",
+                ConsoleColor.Yellow
+                );
+
+
+
+        }
+
+        public void PlotDialogPartEight()
+        {
+
+            Dialog(
+                $"{Robot.PlayerName}: What did you find?\n",
+                ConsoleColor.Yellow
+                );
+            Thread.Sleep(1000);
+            Dialog(
+               $"{Voyager.PlayerName}: Our Ticket it paradise.\n",
+               ConsoleColor.Yellow
+               );
+  
         }
 
     }

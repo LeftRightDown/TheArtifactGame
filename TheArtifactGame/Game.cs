@@ -8,14 +8,32 @@ namespace TheArtifactGame
 {
     class Game
     {
-        List<string> PlayerInventory = new List<string>();
         Player Voyager = new Player("Voyager");
         Player Robot = new Player("Aurora");
         Story Plot = new Story();
-        
 
 
+        //In-game Items
+        Item Artifact = new Item();
+        Item Tablet = new Item();
+        Item KeyCard = new Item();
+        Item Schematics = new Item();
 
+        public void Setupitems()
+        {
+            Artifact.Name = "The Artifact";
+            Artifact.Description = "A Relic of a long lost civilization known as the Xurr.\nRumored to hold the long lost secretes to their technological advanceds.";
+
+            Tablet.Name = "Gauge Tablet";
+            Tablet.Description = "Touch screen tablet that displays gauge information";
+
+            KeyCard.Name = "Merchant Keycard";
+            KeyCard.Description = "Keycard found on dead merchants body\nCould be used to open door to storage room.";
+
+            Schematics.Name = "Merchant Ship Schematics";
+            Schematics.Description = "Diagram layout of Merchant ship\nReveals that the storage room is forward.";
+
+        }
 
         //Opens TitleScene
         public void TitleScene()
@@ -78,10 +96,11 @@ namespace TheArtifactGame
         //Starts Actual Game
         private void PressPlay()
         {
-            
 
+            
             Clear();
-           string InstructionsText = @"
+            Setupitems();
+            string InstructionsText = @"
 
                 ██╗  ██╗ ██████╗ ██╗    ██╗    ████████╗ ██████╗     ██████╗ ██╗      █████╗ ██╗   ██╗    
                 ██║  ██║██╔═══██╗██║    ██║    ╚══██╔══╝██╔═══██╗    ██╔══██╗██║     ██╔══██╗╚██╗ ██╔╝    
@@ -108,11 +127,8 @@ namespace TheArtifactGame
 
             Plot.PlotDialogPartOne();
             Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-            ShowUserPartOne();
             
-
-
-
+            ShowUserPartOne();
 
 
         }
@@ -151,7 +167,7 @@ namespace TheArtifactGame
             It seems Aurora has left you two jobs to do: Check Navigation System or Check Coolant System.
                         ";
 
-            string[] options = { "A) Check Navigation System", "B) Check Coolant System","C) Inventory" };
+            string[] options = { "A) Check Navigation System", "B) Check Coolant System", "C) Inventory" };
             Menu HallwayMenu = new Menu(prompt, options);
             int selectedIndex = HallwayMenu.Run();
 
@@ -177,14 +193,17 @@ namespace TheArtifactGame
                     WriteLine("");
                     WriteLine(Plot.PlotOne[3]);
                     Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
-                    //ShowUserPartTwo();
-                    ShowUserPartFiveA();
+                    
+                    ShowUserPartTwo();
                     break;
                 case 2:
+                    //Check inventory method
                     WriteLine("You Choose to check your Inventory");
                     WriteLine("");
-                    //Check inventory method
+                    Voyager.Displayinventory();
+                    Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+            
+                    ShowUserPartOne();
                     break;
             }
 
@@ -217,7 +236,7 @@ namespace TheArtifactGame
 
                         ";
 
-                string[] options = { "A) Board the ship", "B)Scan the ship for lifeforms" };
+                string[] options = { "A) Board the ship", "B)Scan the ship for lifeforms", "C) Inventory" };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
@@ -243,6 +262,14 @@ namespace TheArtifactGame
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
                         ShowUserPartThree();
+                        break;
+                    case 2:
+                        WriteLine("You Choose to check your Inventory");
+                        WriteLine("");
+                        Voyager.Displayinventory();
+                        Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+
+                        ShowUserPartTwo();
                         break;
                 }
 
@@ -310,7 +337,7 @@ namespace TheArtifactGame
                 Each pathway looking rather similar.
                                         ";
 
-                string[] options = { "A) Left", "B) Right ","C) Forward","D) Inventory"};
+                string[] options = { "A) Left", "B) Right", "C) Forward", "D) Inventory" };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
@@ -320,47 +347,55 @@ namespace TheArtifactGame
                         WriteLine("You Choose to go Left\n");
                         WriteLine(Plot.PlotFour[0]);
                         Thread.Sleep(5000);
-                        WriteLine(Plot.PlotFour[3]);
+                        WriteLine(Plot.PlotFour[4]);
                         WriteLine("");
                         Thread.Sleep(8500);
-                        Plot.PlotDialogPartFourA();
+                        Plot.PlotDialogPartFour();
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
-                        ShowUserPartFiveA();
+                        ShowUserPartFive();
                         break;
                     case 1:
                         WriteLine("You Choose to go Right\n");
                         WriteLine(Plot.PlotFour[1]);
-                        Thread.Sleep(12000);
+                        Thread.Sleep(10000);
                         Clear();
                         WriteLine(Plot.Death[0]);
                         WriteLine(Plot.Death[1]);
                         WriteLine("");
                         Enterkey("Press Enter to Continue to decision phase", ConsoleColor.Cyan);
 
-                       ShowUserPartFour();
+                        ShowUserPartFour();
                         break;
                     case 2:
                         WriteLine("You Choose to go Forward\n");
                         WriteLine(Plot.PlotFour[2]);
                         Thread.Sleep(9000);
-                        
-                        WriteLine(Plot.PlotFour[3]);
                         WriteLine("");
-                        Thread.Sleep(9500);
-                        Plot.PlotDialogPartFourA();
+                        WriteLine(Plot.PlotFour[3]);
+                        Thread.Sleep(5000);
+                        WriteLine("");
+                        WriteLine(Plot.PlotFour[4]);
+                        WriteLine("");
+                        Thread.Sleep(5000);
+                        Plot.PlotDialogPartFour();
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-                        ShowUserPartFiveB();
+
+                        ShowUserPartFive();
                         break;
                     case 3:
                         WriteLine("You Choose to check your Inventory");
                         WriteLine("");
+                        Voyager.Displayinventory();
+                        Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+
+                        ShowUserPartFour();
                         //Check inventory method
                         break;
                 }
             }
 
-            void ShowUserPartFiveA()
+            void ShowUserPartFive()
             {
                 Clear();
                 string prompt = @"
@@ -379,7 +414,7 @@ namespace TheArtifactGame
                  Opening the last doorway you notice a body lying on the ground agaisnt the wall.
                                 ";
 
-                string[] options = { "A) Ignore", "B) Investigate","C) Inventory" };
+                string[] options = { "A) Ignore", "B) Investigate", "C) Inventory" };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
@@ -388,29 +423,45 @@ namespace TheArtifactGame
                     case 0:
                         WriteLine("You Choose to Ignore.");
                         WriteLine("");
-                        WriteLine(Plot.PlotFive[0]);
-                        Thread.Sleep(2000);
-                        Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
-                        ShowUserPartFiveA();
+                        if (Voyager.PlayerInventory.Contains(KeyCard))
+                        {
+                            WriteLine(Plot.PlotFive[2]);
+                            Voyager.PlayerInventory.Add(Schematics);
+                            Thread.Sleep(2000);
+                            Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                            ShowUserPartSix();
+                        }
+                        else
+                        {
+                            WriteLine(Plot.PlotFive[0]);
+                            Thread.Sleep(2000);
+                            Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+                            ShowUserPartFive();
+                        }
+                        
+                        
                         break;
                     case 1:
                         WriteLine("You Choose to Investigate.");
                         WriteLine("");
                         WriteLine(Plot.PlotFive[1]);
                         Thread.Sleep(5500);
-                        WriteLine(Plot.PlotFive[2]);
-                        Thread.Sleep(1500);
+                        Voyager.PlayerInventory.Add(KeyCard);
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-                        ShowUserPartFiveB();
+                        ShowUserPartFive();
                         break;
                     case 2:
+                        //Check inventory method
                         WriteLine("You Choose to check your Inventory");
                         WriteLine("");
-                        //Check inventory method
+                        Voyager.Displayinventory();
+                        Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+
+                        ShowUserPartFive();
                         break;
                 }
             }
-            void ShowUserPartFiveB()
+            void ShowUserPartSix()
             {
                 Clear();
                 string prompt = @"
@@ -434,9 +485,11 @@ namespace TheArtifactGame
                     |.'.','         /%%%%%%%%%%%%%\         ','.'.|
                     |.','          /%%%%%%%%%%%%%%%\          ','.|
                     |;____________/%%%%%Spicer%%%%%%\____________;|                 
-                                        ";
+                     You reach the four way intersection once again.
+                     There are only two options: Left or Forward.
+                                ";
 
-                string[] options = {"A) Left", "B) Forward, C) Inventory " };
+                string[] options = { "A) Left", "B) Forward", "C) Inventory" };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
@@ -448,20 +501,27 @@ namespace TheArtifactGame
                         WriteLine("");
                         Thread.Sleep(1200);
                         Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
-                        ShowUserPartFiveB();
+                        ShowUserPartSix();
                         break;
                     case 1:
                         WriteLine("You Choose to go Forward\n");
                         WriteLine(Plot.PlotSix[1]);
                         WriteLine("");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(10000);
+                        WriteLine("");
+                        WriteLine(Plot.PlotSix[2]);
+                        Voyager.PlayerInventory.Add(Artifact);
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
+                        ShowUserPartSeven();
                         break;
                     case 2:
+                        //Check inventory method
                         WriteLine("You Choose to check your Inventory");
                         WriteLine("");
-                        //Check inventory method
+                        Voyager.Displayinventory();
+                        Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+
+                        ShowUserPartSix();
                         break;
                 }
             }
@@ -470,102 +530,66 @@ namespace TheArtifactGame
             {
                 Clear();
                 string prompt = @"
-                                                     
-                                        ";
+                
+                                ";
 
-                string[] options = { "A) ", "B) " };
+                string[] options = { "A) Left", "B) Right", "C) Forward", "D) Inventory " };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
 
                 switch (selectedIndex)
                 {
                     case 0:
-                        WriteLine("\n");
-                        WriteLine(Plot.PlotThree);
+                        WriteLine("You Choose to go Left\n");
+                        WriteLine(Plot.PlotSeven[0]);
                         WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
-
+                        Thread.Sleep(4000);
+                        Clear();
+                        WriteLine(Plot.Death[0]);
+                        WriteLine(Plot.Death[1]);
+                        Enterkey("Press Enter to go decision phase", ConsoleColor.Cyan);
+                        ShowUserPartSeven();
                         break;
                     case 1:
-                        WriteLine("\n");
-                        WriteLine(Plot.PlotThree);
+                        WriteLine("You Choose to go Right\n");
+                        WriteLine(Plot.PlotSeven[1]);
                         WriteLine("");
+                        Thread.Sleep(10500);;
+                        WriteLine(Plot.PlotSeven[3]);
+                        Thread.Sleep(7000);
+                        Clear();
+                        WriteLine(Plot.Death[0]);
+                        WriteLine(Plot.Death[1]);
                         Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
 
-
+                        ShowUserPartSeven();
                         break;
+                    case 2:
+                        WriteLine("You Choose to go Forward\n");
+                        WriteLine("");
+                        WriteLine(Plot.PlotSeven[2]);
+                        Thread.Sleep(1000);
+                        Plot.PlotDialogPartSeven();
+                        Thread.Sleep(2000);
+                        WriteLine(Plot.PlotSeven[4]);
+                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                        End();
+                        break;
+                    case 3:
+                        //Check inventory method
+                        WriteLine("You Choose to check your Inventory");
+                        WriteLine("");
+                        Voyager.Displayinventory();
+                        Enterkey("Press Enter to go Back", ConsoleColor.Cyan);
+
+                        ShowUserPartSeven();
+                        break;
+
                 }
             }
-
-            void ShowUserPartEight()
-            {
-                Clear();
-                string prompt = @"
-                                                     
-                                        ";
-
-                string[] options = { "A) ", "B) " };
-                Menu ControlRoom = new Menu(prompt, options);
-                int selectedIndex = ControlRoom.Run();
-
-                switch (selectedIndex)
-                {
-                    case 0:
-                        WriteLine("\n");
-                        WriteLine(Plot.PlotThree);
-                        WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
-
-                        break;
-                    case 1:
-                        WriteLine("\n");
-                        WriteLine(Plot.PlotThree);
-                        WriteLine("");
-                        Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-
-
-                        break;
-                }
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
-
         //Display About Section
-        private void DisplayAboutInfo()
+        void DisplayAboutInfo()
         {
             Clear();
             WriteLine("Created by Zachary Tan");
@@ -597,7 +621,7 @@ namespace TheArtifactGame
             {
                 ForegroundColor = Color;
                 WriteLine(Message);
- 
+
                 ConsoleKeyInfo enterKeyInfo = ReadKey(true);
                 enterKeyPressed = enterKeyInfo.Key;
                 if (enterKeyPressed == ConsoleKey.Enter)
@@ -607,33 +631,52 @@ namespace TheArtifactGame
                 else
                 {
                     WriteLine("You did not press correct Input");
-                    
+
 
                 }
             } while (enterKeyPressed != ConsoleKey.Enter);
             ResetColor();
-           
+
         }
-
-
-
-
 
         void End()
         {
-            if (Voyager.PlayerInventory.Contains("The Artifact"))
-            {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("CONGRAGULATIONS!, You have completed the Game and found the Artifact!");
-                Console.ResetColor();
+            Clear();
+            WriteLine(Plot.PlotEight[0]);
+            Thread.Sleep(1000);
+            Plot.PlotDialogPartEight();
+            Thread.Sleep(1200);
+            Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+            Clear();
+            WriteLine(@"
 
-            }
+                          _
+                        _/-\_ 
+                     .-`-:-:-`-.
+                    /-:-:-:-:-:-\
+                    \:-:-:-:-:-:/
+                     |`       `|
+                     |         |
+                jgs  `\       /'
+                       `-._.-'
 
+            ");
+            WriteLine(Plot.PlotEight[1]);
+            WriteLine(Plot.PlotEight[2]);
+            Thread.Sleep(5000);
+            Clear();
+            WriteLine(Plot.End[0]);
+            Thread.Sleep(5000);
+            Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+            RunMainMenu();
 
 
 
 
         }
     }
-}
+
+}  
+    
+
 

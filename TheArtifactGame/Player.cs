@@ -9,7 +9,7 @@ namespace TheArtifactGame
     {
         //Property of Players
         public string PlayerName { get; set; }
-        public List<string> PlayerInventory { get; private set; }
+        public List<Item> PlayerInventory = new List<Item>();
         
 
 
@@ -17,11 +17,29 @@ namespace TheArtifactGame
         public Player(string name)
         {
             PlayerName = name;
-            //PlayerInventory = inventory;
+           
             
         }
+        public void Displayinventory()
+        {
+            if (PlayerInventory.Count > 0)
+            {
+                int index = 1;
+                for (int i = 0; i < PlayerInventory.Count; i++)
+                {
+                 WriteLine($"{index}: [{PlayerInventory[i].Name}]");
+                 WriteLine(PlayerInventory[i].Description);
+                    index++;
+                }
+            }
+            else
+            {
+                WriteLine("There is Nothing in your Inventory");
+            }
 
-      
+
+
+        }
     }
     
 }
