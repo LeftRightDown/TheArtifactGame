@@ -400,20 +400,32 @@ namespace TheArtifactGame
                 Clear();
                 string prompt = @"
 
-
-                        ██╗    ██╗██╗██████╗     
-                        ██║    ██║██║██╔══██╗    
-                        ██║ █╗ ██║██║██████╔╝    
-                        ██║███╗██║██║██╔═══╝     
-                        ╚███╔███╔╝██║██║         
-                         ╚══╝╚══╝ ╚═╝╚═╝ 
-
-                    
+                         .                
+                       .     '             '      .      .
+                                __.--._          > <
+                        .     .'   L   `.--._     '
+                       > <    `/ c '`    \   `.
+                        '     :           ;    `.    `     ,
+                              |           ;      \
+                             /`.     | ' /        \     .
+                        '   / -.\ \  ^ ;/   _      \   > <
+                           :    \`.:/ \|     `.|    ;   '
+                           |     :''   '       ;    |
+                           |     |`.         _/_    ;
+                [bug]      :     :  `-._____/   `. /
+                            \    |         :/ ,   V\
+                  /^\    __.--; _:         `./ /  ; ;
+                 :  |\_ /     |  \L _..--.   `.L.'  |`.   __
+                 |  | ;`.    ; _ \\'      `.          /`+'.'`.
+                 |  | |      | \CT_;        `-.      ' / /   |
+                 |-_| |   .- '`.___.         `-.    / /    ;
+                 :  ; :.-'                         `-./ /.   /
+                  \/_ /_                              \/  `./
+                                                       `._.'
                  You pick yourself up but your vision is detered because of the lights switching ot emergency mode.
                  Ignoring the sudden collapse of whatever was behind you, you keep moving in the same direction.
-                 Opening the last doorway you notice a body lying on the ground agaisnt the wall.
-                                ";
-
+                 Opening the last doorway you notice a body lying on the ground agaisnt the wall
+                        ";
                 string[] options = { "A) Ignore", "B) Investigate", "C) Inventory" };
                 Menu ControlRoom = new Menu(prompt, options);
                 int selectedIndex = ControlRoom.Run();
@@ -526,12 +538,32 @@ namespace TheArtifactGame
                 }
             }
 
-            void ShowUserPartSeven()
+             void ShowUserPartSeven()
             {
                 Clear();
                 string prompt = @"
-                
-                                ";
+                     _____________________________________________
+                    |.'',                                     ,''.|
+                    |.'.'',                                 ,''.'.|
+                    |.'.'.'',                             ,''.'.'.|
+                    |.'.'.'.'',                         ,''.'.'.'.|
+                    |.'.'.'.'.|                         |.'.'.'.'.|
+                    |.'.'.'.'.|===;                 ;===|.'.'.'.'.|
+                    |.'.'.'.'.|:::|',             ,'|:::|.'.'.'.'.|
+                    |.'.'.'.'.|---|'.|, _______ ,|.'|---|.'.'.'.'.|
+                    |.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|
+                    |,',',',',|---|',|'|???????|'|,'|---|,',',',',|
+                    |.'.'.'.'.|:::|'.|'|???????|'|.'|:::|.'.'.'.'.|
+                    |.'.'.'.'.|---|','   /%%%\   ','|---|.'.'.'.'.|
+                    |.'.'.'.'.|===:'    /%%%%%\    ':===|.'.'.'.'.|
+                    |.'.'.'.'.|%%%%%%%%%%%%%%%%%%%%%%%%%|.'.'.'.'.|
+                    |.'.'.'.','       /%%%%%%%%%\       ','.'.'.'.|
+                    |.'.'.','        /%%%%%%%%%%%\        ','.'.'.|
+                    |.'.','         /%%%%%%%%%%%%%\         ','.'.|
+                    |.','          /%%%%%%%%%%%%%%%\          ','.|
+                    |;____________/%%%%%Spicer%%%%%%\____________;|
+                            Which way will lead you to saftey?      
+                            ";
 
                 string[] options = { "A) Left", "B) Right", "C) Forward", "D) Inventory " };
                 Menu ControlRoom = new Menu(prompt, options);
