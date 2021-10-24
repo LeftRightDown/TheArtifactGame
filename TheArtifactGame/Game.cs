@@ -628,6 +628,8 @@ namespace TheArtifactGame
             WriteLine("Title Assets used from https://patorjk.com/software/taag");
             WriteLine("Menu Code used from https://www.youtube.com/watch?v=qAWhGEPMlS8");
             WriteLine("Art Assets used from https://www.asciiart.eu/");
+            WriteLine("Art Assets ued from https://asciiart.website/");
+            WriteLine("Tutored by Mack, Pearson-Muggli");
             WriteLine("");
             WriteLine("Press any key to return to main menu.");
             ReadKey(true);
