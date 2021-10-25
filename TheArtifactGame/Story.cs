@@ -26,14 +26,14 @@ namespace TheArtifactGame
         public string[] PlotIntro =
         {
          //0
-         "It is the Clestial Year 2085 and Humanity has reached for the stars once more. " +
-         "Sparking a the new age of Exploration!\n" +
-         "You are a hot-shot pilot looking for a way to make tons of money\n"+
-         "This is the beginning of your Story...\n",
+         $"It is the Clestial Year 2085 and Humanity has reached for the stars once more. " +
+         $"Sparking a the new age of Exploration!\n" +
+         $"You are a hot-shot pilot looking for a way to make tons of money\n"+
+         $"This is the beginning of your Story...\n",
          //1
-         "You Wake up from your nap on your way to meet up with a black market merchant for information.\n" +
-         "Upon Awaking your greeted by your Robot companion Aurora who seems to be pointing something at you.\n"+
-         "Still a little sleepy you take a closer look only to realize she is pointing her blaster at you.\n"
+         $"You Wake up from your nap on your way to meet up with a black market merchant for information.\n" +
+         $"Upon Awaking your greeted by your Robot companion {Robot.PlayerName} who seems to be pointing something at you.\n"+
+         $"Still a little sleepy you take a closer look only to realize she is pointing her blaster at you.\n"
         };
 
 
