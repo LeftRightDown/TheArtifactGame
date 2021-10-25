@@ -10,8 +10,8 @@ namespace TheArtifactGame
     {
         //Instance of Player
         Player Voyager = new Player("Voyager");
-        static Player Robot = new Player("Aurora");
-        static Player Unkown = new Player("Uknown");
+        static Robot Robot = new Robot("Aurora");
+
         //Dialog method
         void Dialog(string message, ConsoleColor Color)
         {

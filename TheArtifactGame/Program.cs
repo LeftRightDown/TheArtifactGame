@@ -10,7 +10,7 @@
  *  Menu Code used from https://www.youtube.com/watch?v=qAWhGEPMlS8
  *  Art Assets used from https://www.asciiart.eu/
  *  Title Assets used from https://patorjk.com/software/taag
- *  Art Assets ued from https://asciiart.website/
+ *  Art Assets used from https://asciiart.website/
  *  Enterkey Code Refactored by Mack, Pearson-Muggli
  */
 using System;

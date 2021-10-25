@@ -9,7 +9,7 @@ namespace TheArtifactGame
     class Game
     {
         Player Voyager = new Player("Voyager");
-        Player Robot = new Player("Aurora");
+        Robot Robot = new Robot("Aurora");
         Story Plot = new Story();
 
 
@@ -22,7 +22,7 @@ namespace TheArtifactGame
         public void Setupitems()
         {
             Artifact.Name = "The Artifact";
-            Artifact.Description = "A Relic of a long lost civilization known as the Xurr.\nRumored to hold the long lost secretes to their technological advanceds.";
+            Artifact.Description = "A Relic of a long lost civilization known as the Xurr.\nRumored to hold the long lost secretes to their technological advances.";
 
             Tablet.Name = "Gauge Tablet";
             Tablet.Description = "Touch screen tablet that displays gauge information";
@@ -674,36 +674,44 @@ namespace TheArtifactGame
         }
 
         void End()
-        {
-            Clear();
-            WriteLine(Plot.PlotEight[0]);
-            Thread.Sleep(1000);
-            Plot.PlotDialogPartEight();
-            Thread.Sleep(1200);
-            Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-            Clear();
-            WriteLine(@"
+        {    Clear();
+            if (Voyager.PlayerInventory.Contains(Artifact))
+            {
+                
+                WriteLine(Plot.PlotEight[0]);
+                Thread.Sleep(1000);
+                Plot.PlotDialogPartEight();
+                Thread.Sleep(1200);
+                Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                Clear();
+                WriteLine(@"
 
-                          _
-                        _/-\_ 
-                     .-`-:-:-`-.
-                    /-:-:-:-:-:-\
-                    \:-:-:-:-:-:/
-                     |`       `|
-                     |         |
-                jgs  `\       /'
-                       `-._.-'
+                              _
+                            _/-\_ 
+                         .-`-:-:-`-.
+                        /-:-:-:-:-:-\
+                        \:-:-:-:-:-:/
+                         |`       `|
+                         |         |
+                    jgs  `\       /'
+                           `-._.-'
 
-            ");
-            WriteLine(Plot.PlotEight[1]);
-            WriteLine(Plot.PlotEight[2]);
-            Thread.Sleep(5000);
-            Clear();
-            WriteLine(Plot.End[0]);
-            Thread.Sleep(5000);
-            Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
-            RunMainMenu();
-
+                ");
+                WriteLine(Plot.PlotEight[1]);
+                WriteLine(Plot.PlotEight[2]);
+                Thread.Sleep(5000);
+                Clear();
+                WriteLine(Plot.End[0]);
+                Thread.Sleep(5000);
+                Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                RunMainMenu();
+            }
+            else
+            {
+                WriteLine("Mission Failed");
+                Enterkey("Press Enter to Continue", ConsoleColor.Cyan);
+                RunMainMenu();
+            }
 
 
 
